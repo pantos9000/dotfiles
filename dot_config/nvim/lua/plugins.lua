@@ -163,9 +163,10 @@ require('packer').startup(function(use)
     }
 
     -- easier windows moving
-    use {
-        'sindrets/winshift.nvim'
-    }
+    use 'sindrets/winshift.nvim'
+
+    -- additional targets
+    use 'wellle/targets.vim' -- 'change inside' e.g. for '_', '|', ...
 
     -- faster coloring
     use {

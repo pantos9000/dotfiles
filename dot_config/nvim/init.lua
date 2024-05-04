@@ -11,8 +11,10 @@ require('settings')
 
 -- TODO plugins
 --      - easy align? https://github.com/junegunn/vim-easy-align
+--      - or vim lion?
 --      - diffview https://github.com/sindrets/diffview.nvim ?
 --      - fzf? oder bei telescope bleiben?
+--      - https://github.com/gennaro-tedesco/nvim-peekup
 
 -- TODO autocomplete from tmux panes?
 -- TODO netrw config

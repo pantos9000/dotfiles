@@ -51,9 +51,6 @@ map('v', 'p', '"_dP', { desc = 'paste' })
 map('n', '<leader>d', '"_d', { desc = 'delete without yank' })
 map('v', '<leader>d', '"_d', { desc = 'delete without yank' })
 
--- not needed and annoying when pressed by accident
-map('n', 'Q', '<nop>')
-
 -- jump in compiler errors
 map('n', '<C-p>', ':cprev<CR>zz', { desc = 'prev error' })
 map('n', '<C-n>', ':cnext<CR>zz', { desc = 'next error' })
