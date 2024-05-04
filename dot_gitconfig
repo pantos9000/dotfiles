@@ -49,3 +49,5 @@
 	sort = -committerdate
 [fetch]
 	writeCommitGraph = true
+[rebase]
+	updateRefs = true
