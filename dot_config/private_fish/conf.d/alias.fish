@@ -1,4 +1,4 @@
-alias ls='ls --color=always'
+alias ls='exa'
 alias grep='grep --color=always'
 alias agl='ag --pager="less -R"'
 alias dmesg='dmesg --color=always -H'
