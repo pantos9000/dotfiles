@@ -15,9 +15,6 @@ set $SCRIPTS_DIR ~/.config/i3/scripts
 # preferred terminal emulator
 set $TERM alacritty
 
-# set font for bars
-set $BAR_FONT pango:DejaVu Sans Mono, FontAwesome 9
-
 # load host specific configs
 include $CONFIG_DIR/config.`hostname`.d/*.conf
 
