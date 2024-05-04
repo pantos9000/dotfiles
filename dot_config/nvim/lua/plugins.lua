@@ -1,3 +1,8 @@
+-- condition to not load in vscode
+local no_vscode = function()
+    return vim.g.vscode == nil
+end
+
 -- ensure the packer plugin manager is installed
 local ensure_packer = function()
     local fn = vim.fn
@@ -24,7 +29,8 @@ require('packer').startup(function(use)
     use {
         'nvim-treesitter/nvim-treesitter',
         as = 'treesitter',
-        run = ':TSUpdate'
+        run = ':TSUpdate',
+        config = require('configs/config_treesitter')
     }
 
     ---- lsp
@@ -55,20 +61,28 @@ require('packer').startup(function(use)
             {
                 'weilbith/nvim-code-action-menu',
                 cmd = 'CodeActionMenu',
+                cond = no_vscode,
             },
 
             -- nice symbols for cmp completion menu
-            { 'onsails/lspkind.nvim' },
+            {
+                'onsails/lspkind.nvim',
+                cond = no_vscode,
+            },
 
             -- inlay hints
-            { 'lvimuser/lsp-inlayhints.nvim' },
+            {
+                'lvimuser/lsp-inlayhints.nvim',
+                cond = no_vscode,
+            },
 
             -- show progress
             {
                 'j-hui/fidget.nvim',
                 tag = 'legacy',
+                cond = no_vscode,
             }
-        }
+        },
     }
 
 
@@ -91,12 +105,15 @@ require('packer').startup(function(use)
     -- status bar
     use {
         'freddiehaddad/feline.nvim',
-        requires = { 'nvim-tree/nvim-web-devicons', opt = false }
+        cond = no_vscode,
+        requires = { 'nvim-tree/nvim-web-devicons', opt = false },
+        config = require('configs/config_feline')
     }
 
     -- show current context when out of visible range
     use {
         "nvim-treesitter/nvim-treesitter-context",
+        cond = no_vscode,
         config = function()
             vim.keymap.set('n', '<leader>2', ':TSContextToggle<CR>',
                 { noremap = true, silent = true, desc = "Toggle treesitter-context" })
@@ -106,56 +123,85 @@ require('packer').startup(function(use)
     -- nicer folding
     use {
         'kevinhwang91/nvim-ufo',
+        cond = no_vscode,
         requires = {
             'kevinhwang91/promise-async',
             "luukvbaal/statuscol.nvim", -- remove pesky foldlevel numbers from foldcolumn
-        }
+        },
+        config = require('configs/config_ufo')
     }
 
     -- nicer nvim ui
-    use { 'stevearc/dressing.nvim' }
+    use { 'stevearc/dressing.nvim',
+        cond = no_vscode,
+    }
 
     -- nicer highlight of braces, keywords, ...
     use {
         'andymass/vim-matchup',
+        cond = no_vscode,
         setup = function()
             vim.g.matchup_matchparen_offscreen = { method = "popup" }
+            require 'nvim-treesitter.configs'.setup { matchup = { enable = true } }
         end
     }
 
     -- nicer notifications
     use {
         'rcarriga/nvim-notify',
+        cond = no_vscode,
         requires = { 'nvim-telescope/telescope.nvim' },
     }
 
     -- show help menu
-    use "folke/which-key.nvim"
+    use { "folke/which-key.nvim",
+        cond = no_vscode,
+        config = require('configs/config_which-key')
+    }
 
     -- sidebar for quick code navigation
-    use 'stevearc/aerial.nvim'
+    use { 'stevearc/aerial.nvim',
+        cond = no_vscode,
+        config = require('configs/config_aerial')
+    }
 
     -- view for errors/warnings/info
     use {
         "folke/trouble.nvim",
+        cond = no_vscode,
         requires = "nvim-tree/nvim-web-devicons",
+        config = require('configs/config_trouble')
     }
 
     -- nicer file explorer
-    use { 'stevearc/oil.nvim' }
+    use { 'stevearc/oil.nvim',
+        cond = no_vscode,
+        config = require('configs/config_oil')
+    }
 
     -- git
     use {
         'lewis6991/gitsigns.nvim',
+        cond = no_vscode,
         -- tag = 'release' -- To use the latest release (do not use this if you run Neovim nightly or dev builds!)
+        config = require('configs/config_gitsigns'),
     }
-    use 'tpope/vim-fugitive'
+    use { 'tpope/vim-fugitive',
+        cond = no_vscode,
+        config = require('configs/config_fugitive'),
+    }
 
     -- easier windows moving
-    use 'sindrets/winshift.nvim'
+    use { 'sindrets/winshift.nvim',
+        cond = no_vscode,
+        config = require('configs/config_winshift'),
+    }
 
     -- easier windows resizing
-    use 'mrjones2014/smart-splits.nvim'
+    use { 'mrjones2014/smart-splits.nvim',
+        cond = no_vscode,
+        config = require('configs/config_smart-splits')
+    }
 
 
     --------------------
@@ -195,42 +241,48 @@ require('packer').startup(function(use)
     --------------------
 
     -- undo
-    use 'mbbill/undotree'
+    use { 'mbbill/undotree',
+        cond = no_vscode,
+        config = function()
+            vim.keymap.set('n', '<leader>u', vim.cmd.UndotreeToggle, { desc = 'toggle undo tree' })
+        end,
+    }
 
     -- fuzzy finder
     use {
         'nvim-telescope/telescope.nvim', branch = '0.1.x',
-        requires = { { 'nvim-lua/plenary.nvim' } }
+        cond = no_vscode,
+        requires = { { 'nvim-lua/plenary.nvim' } },
     }
 
     -- snippets
     use {
         "L3MON4D3/LuaSnip",
+        cond = no_vscode,
         tag = "v2.*",                 -- follow latest release.
         run = "make install_jsregexp" -- install jsregexp (optional!:).
     }
     use {
         "rafamadriz/friendly-snippets",
-        config = function()
-            require("luasnip.loaders.from_vscode").lazy_load()
-        end,
+        cond = no_vscode,
     }
 
     -- jump around, jump around, jump up jump up and get down
     use {
         'phaazon/hop.nvim',
         branch = 'v2', -- optional but strongly recommended
-        -- config = function()
-        -- you can configure Hop the way you like here; see :h hop-config
-        -- require 'hop'.setup { keys = 'etovxqpdygfblzhckisuran' }
-        -- end
+        config = require('configs/config_hop'),
     }
 
     -- toggle comments
-    use 'numToStr/Comment.nvim'
+    use { 'numToStr/Comment.nvim',
+        -- cond = no_vscode,
+    }
 
     -- automatically close brackets when opening them
-    use 'windwp/nvim-autopairs'
+    use { 'windwp/nvim-autopairs',
+        config = require('configs/config_autopairs')
+    }
 
     -- cumulative increment in visual mode
     use {
@@ -245,6 +297,7 @@ require('packer').startup(function(use)
     -- better register handling
     use {
         'gennaro-tedesco/nvim-peekup',
+        cond = no_vscode,
         config = function()
             -- menu with '""'
             vim.keymap.set('n', '<leader>"p', '<Plug>PeekupPasteAfter', { desc = 'paste register after cursor' })
@@ -255,13 +308,19 @@ require('packer').startup(function(use)
     -- sudo saving
     use {
         'https://github.com/lambdalisue/suda.vim',
+        cond = no_vscode,
         config = function()
             vim.api.nvim_create_user_command('W', 'SudaWrite', {})
         end
     }
 
     -- text alignment
-    use { 'echasnovski/mini.align', branch = 'stable' }
+    use { 'echasnovski/mini.align',
+        branch = 'stable',
+        config = function()
+            require('mini.align').setup()
+        end
+    }
 
 
     --------------------
@@ -271,172 +330,10 @@ require('packer').startup(function(use)
     -- neorg
     use {
         "nvim-neorg/neorg",
+        cond = no_vscode,
         ft = "norg",   -- only load in norg files
         cmd = 'Neorg', -- lazy load on command, allows you to autocomplete :Neorg regardless of whether it's loaded yet
-        config = function()
-            require('neorg').setup { load = {
-                ["core.defaults"] = {}, -- Loads default behaviour
-                ["core.completion"] = {
-                    config = {
-                        engine = "nvim-cmp",
-                    },
-                },
-                ["core.integrations.nvim-cmp"] = {},
-                ["core.concealer"] = { -- Adds pretty icons to your documents
-                    config = { icon_preset = "varied" }
-                },
-                ["core.export"] = {},
-                ["core.presenter"] = {
-                    config = { zen_mode = "zen-mode" }
-                },
-                ["core.keybinds"] = { config = {
-                    -- https://github.com/nvim-neorg/neorg/blob/main/lua/neorg/modules/core/keybinds/keybinds.lua
-                    default_keybinds = false,
-                    neorg_leader = "<leader>t",
-                    hook = function(keybinds)
-                        local leader = keybinds.leader
-                        local ni_map = {
-                            {
-                                "<S-Left>",
-                                "core.promo.demote",
-                                "nested",
-                                opts = {
-                                    desc = "Demote Object" }
-                            },
-                            {
-                                "<S-Right>",
-                                "core.promo.promote",
-                                "nested",
-                                opts = {
-                                    desc = "Promote Object" }
-                            },
-                            {
-                                "<C-Up>",
-                                "core.integrations.treesitter.previous.heading",
-                                opts = {
-                                    desc = "Move to prev heading" }
-                            },
-                            {
-                                "<C-Down>",
-                                "core.integrations.treesitter.next.heading",
-                                opts = {
-                                    desc = "Move to next heading" }
-                            },
-                        }
-                        keybinds.map_event_to_mode("norg", {
-                            n = ni_map,
-                            i = ni_map,
-                        }, {
-                            silent = true,
-                            noremap = false,
-                            nowait = true,
-                        })
-                        keybinds.map_event_to_mode("norg", {
-                            n = {
-                                {
-                                    leader .. "u",
-                                    "core.qol.todo_items.todo.task_undone",
-                                    opts = {
-                                        desc = "Mark as undone" }
-                                },
-                                {
-                                    leader .. "p",
-                                    "core.qol.todo_items.todo.task_pending",
-                                    opts = {
-                                        desc = "Mark as pending" }
-                                },
-                                {
-                                    leader .. "d",
-                                    "core.qol.todo_items.todo.task_done",
-                                    opts = {
-                                        desc = "Mark as done" }
-                                },
-                                {
-                                    leader .. "h",
-                                    "core.qol.todo_items.todo.task_on_hold",
-                                    opts = {
-                                        desc = "Mark as on hold" }
-                                },
-                                {
-                                    leader .. "c",
-                                    "core.qol.todo_items.todo.task_cancelled",
-                                    opts = {
-                                        desc = "Mark as cancelled" }
-                                },
-                                {
-                                    leader .. "r",
-                                    "core.qol.todo_items.todo.task_recurring",
-                                    opts = {
-                                        desc = "Mark as recurring" }
-                                },
-                                {
-                                    leader .. "i",
-                                    "core.qol.todo_items.todo.task_important",
-                                    opts = {
-                                        desc = "Mark as important" }
-                                },
-                                {
-                                    leader .. "l",
-                                    "core.pivot.toggle-list-type",
-                                    opts = {
-                                        desc = "Toggle (un)ordered list" }
-                                },
-                                {
-                                    leader .. "L",
-                                    "core.pivot.invert-list-type",
-                                    opts = {
-                                        desc = "Invert (un)ordered list" }
-                                },
-                                { "<CR>", "core.esupports.hop.hop-link", opts = { desc = "Jump to Link" } },
-                                {
-                                    "gd",
-                                    "core.esupports.hop.hop-link",
-                                    opts = { desc = "Jump to Link (Vertical Split)" },
-                                },
-                                {
-                                    "gD",
-                                    "core.esupports.hop.hop-link",
-                                    "vsplit",
-                                    opts = { desc = "Jump to Link (Vertical Split)" },
-                                },
-                            },
-                        }, {
-                            silent = true,
-                            noremap = false,
-                        })
-                        keybinds.map_to_mode("norg", {
-                            n = {
-                                {
-                                    leader .. "t",
-                                    ":Neorg toggle-concealer<CR>",
-                                    { desc = "Toggle concealer" }
-                                },
-                                {
-                                    leader .. "a",
-                                    ":Neorg toc split<CR>",
-                                    { desc = "Open table of contents" }
-                                },
-                            }
-                        })
-                        keybinds.map_event_to_mode("presenter", {
-                            n = {
-                                { "<CR>",    "core.presenter.next_page",     opts = { desc = "Next Page" } },
-                                { "<Right>", "core.presenter.next_page",     opts = { desc = "Next Page" } },
-                                { "<Left>",  "core.presenter.previous_page", opts = { desc = "Previous Page" } },
-
-                                -- Keys for closing the current display
-                                { "q",       "core.presenter.close",         opts = { desc = "Close Presentation" } },
-                                { "<Esc>",   "core.presenter.close",         opts = { desc = "Close Presentation" } },
-                            },
-                        }, {
-                            silent = true,
-                            noremap = true,
-                            nowait = true,
-                        })
-                    end,
-                }, },
-            }, }
-        end,
+        config = require('configs/config_neorg'),
         run = ":Neorg sync-parsers",
         requires = {
             "nvim-lua/plenary.nvim",

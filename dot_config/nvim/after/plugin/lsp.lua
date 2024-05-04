@@ -1,3 +1,7 @@
+if not packer_plugins['lsp-zero'] or not packer_plugins['lsp-zero'].loaded then
+    return
+end
+
 local inlay_hints = require('lsp-inlayhints')
 -- for defaults see:
 -- https://github.com/simrat39/inlay-hints.nvim/blob/main/lua/inlay-hints/config.lua
@@ -45,7 +49,7 @@ lsp.on_attach(function(client, bufnr)
     map('n', 'ga', vim.cmd.CodeActionMenu, { desc = 'code action' })
     map('v', 'ga', vim.cmd.CodeActionMenu, { desc = 'code action' })
 
-    map('n', '<F2>', vim.lsp.buf.rename, { desc = 'rename symbol under cursor' }) -- TODO change
+    map('n', '<leader>r', vim.lsp.buf.rename, { desc = 'rename symbol under cursor' }) -- TODO change
     map('n', '<F3>', vim.lsp.buf.format, { desc = 'format file' })
 
     map('n', '<leader>h', inlay_hints.toggle, { desc = 'toggle inlay hints' })

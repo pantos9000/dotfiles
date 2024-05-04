@@ -1,3 +1,7 @@
+if not packer_plugins['notify'] or not packer_plugins['notify'].loaded then
+    return
+end
+
 local notify = require('notify')
 notify.setup({
     stages = 'slide',

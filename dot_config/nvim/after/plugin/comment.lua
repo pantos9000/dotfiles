@@ -1,4 +1,8 @@
-require('Comment').setup({
+if not packer_plugins['comment'] or not packer_plugins['comment'].loaded then
+    return
+end
+
+require('comment').setup({
     sticky = true,
     toggler = {
         line = '<C-c><C-c>',  -- toggle with line comment

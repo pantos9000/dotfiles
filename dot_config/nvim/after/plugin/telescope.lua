@@ -1,3 +1,7 @@
+if not packer_plugins['telescope'] or not packer_plugins['telescope'].loaded then
+    return
+end
+
 local builtin = require('telescope.builtin')
 local telescope = require('telescope')
 
