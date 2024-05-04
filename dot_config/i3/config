@@ -1,0 +1,25 @@
+# i3 config file (v4)
+#
+# Please see http://i3wm.org/docs/userguide.html for a complete reference!
+
+# mod key. Use Mod1 for Alt, Mod4 for super
+set $MOD Mod4
+
+# use ctrl+win for workspace switching left/right
+set $MOD2 Control+Mod4
+
+# some directories
+set $CONFIG_DIR ~/.config/i3
+set $SCRIPTS_DIR ~/.config/i3/scripts
+
+# preferred terminal emulator
+set $TERM alacritty
+
+# set font for bars
+set $BAR_FONT pango:DejaVu Sans Mono, FontAwesome 9
+
+# load host specific configs
+include $CONFIG_DIR/config.`hostname`.d/*.conf
+
+# load configs
+include $CONFIG_DIR/config.d/*.conf
