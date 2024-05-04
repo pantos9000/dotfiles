@@ -145,4 +145,6 @@
     "githubPullRequests.fileListLayout": "tree",
     "diffEditor.ignoreTrimWhitespace": false,
     "githubPullRequests.pullBranch": "never",
+    "editor.hover.delay": 2000,
+    "editor.hover.hidingDelay": 1000,
 }
