@@ -325,7 +325,7 @@ require('packer').startup(function(use)
 
 
     --------------------
-    -- Org mode
+    -- File specific
     --------------------
 
     -- neorg
@@ -341,6 +341,12 @@ require('packer').startup(function(use)
             "folke/zen-mode.nvim",
         },
     }
+
+    -- markdown preview
+    use({
+        "iamcco/markdown-preview.nvim",
+        run = function() vim.fn["mkdp#util#install"]() end,
+    })
 
 
     --------------------
