@@ -155,17 +155,6 @@ require('packer').startup(function(use)
             "luukvbaal/statuscol.nvim", -- remove pesky foldlevel numbers from foldcolumn
         }
     }
-
-    -- rust
-    -- use {
-    -- 	'simrat39/rust-tools.nvim',
-    -- 	requires = {
-    -- 		'neovim/nvim-lspconfig',
-    -- 		-- debugging
-    -- 		'nvim-lua/plenary.nvim',
-    -- 		'mfussenegger/nvim-dap',
-    -- 	}
-    -- }
 end)
 
 -- the first run will install packer and our plugins

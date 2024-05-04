@@ -2,8 +2,6 @@ require('plugins')
 require('mappings')
 require('settings')
 
--- TODO more awesome telescope stuff (git, treesitter, ...)
---      see https://github.com/nvim-telescope/telescope.nvim#pickers
 -- TODO nicer CodeActionMenu('ga')
 -- TODO nicer cmp completion menu (borders?)
 -- TODO revisit go to stuff, e.g. definition, code action, ...

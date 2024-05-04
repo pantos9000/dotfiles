@@ -1,4 +1,3 @@
--- local inlay_hints = require('inlay-hints')
 local inlay_hints = require('lsp-inlayhints')
 -- for defaults see:
 -- https://github.com/simrat39/inlay-hints.nvim/blob/main/lua/inlay-hints/config.lua
@@ -30,28 +29,28 @@ lsp.on_attach(function(client, bufnr)
     end
 
     -- go to *
-    map('n', 'gd', function() telescope.lsp_definitions() end, { desc = 'go to definition' })
-    map('n', 'gD', function() vim.lsp.buf.declaration() end, { desc = 'go to declaration' })
-    map('n', 'gi', function() vim.lsp.buf.implementation() end, { desc = 'go to implementation' })
-    map('n', 'gt', function() telescope.lsptype_definitions() end, { desc = 'go to type definition' })
-    map('n', 'gr', function() telescope.lsp_references() end, { desc = 'list references' })
-    map('n', 'gc', function() telescope.lsp_incoming_calls() end, { desc = 'go to incoming calls' })
-    map('n', 'gC', function() telescope.lsp_outgoing_calls() end, { desc = 'go to outgoing calls' })
+    map('n', 'gd', telescope.lsp_definitions, { desc = 'go to definition' })
+    map('n', 'gD', vim.lsp.buf.declaration, { desc = 'go to declaration' })
+    map('n', 'gi', telescope.lsp_implementations, { desc = 'go to implementation' })
+    map('n', 'gt', telescope.lsp_type_definitions, { desc = 'go to type definition' })
+    map('n', 'gr', telescope.lsp_references, { desc = 'list references' })
+    map('n', 'gc', telescope.lsp_incoming_calls, { desc = 'go to incoming calls' })
+    map('n', 'gC', telescope.lsp_outgoing_calls, { desc = 'go to outgoing calls' })
 
-    map('n', 'gs', function() telescope.lsp_dynamic_workspace_symbols() end, { desc = 'query symbols' })
-    map('n', 'gh', function() vim.lsp.buf.hover() end, { desc = 'hover' })
-    map('n', '<C-h>', function() vim.lsp.buf.signature_help() end, { desc = 'signature help' })
-    map('i', '<C-h>', function() vim.lsp.buf.signature_help() end, { desc = 'signature help' })
+    map('n', 'gs', telescope.lsp_dynamic_workspace_symbols, { desc = 'query symbols' })
+    map('n', 'gh', vim.lsp.buf.hover, { desc = 'hover' })
+    map('n', '<C-h>', vim.lsp.buf.signature_help, { desc = 'signature help' })
+    map('i', '<C-h>', vim.lsp.buf.signature_help, { desc = 'signature help' })
 
     -- map('n', 'ga', function() vim.lsp.buf.code_action() end, { desc = 'code action' })
     map('n', 'ga', vim.cmd.CodeActionMenu, { desc = 'code action' })
     -- TODO nicer code action
     -- TODO code action range?
 
-    map('n', 'F2', function() vim.lsp.buf.rename() end, { desc = 'rename symbol under cursor' })
-    map('n', 'F3', function() vim.lsp.buf.format() end, { desc = 'format file' })
+    map('n', 'F2', vim.lsp.buf.rename, { desc = 'rename symbol under cursor' })
+    map('n', 'F3', vim.lsp.buf.format, { desc = 'format file' })
 
-    map('n', '<leader>h', function() inlay_hints.toggle() end, { desc = 'toggle inlay hints' })
+    map('n', '<leader>h', inlay_hints.toggle, { desc = 'toggle inlay hints' })
 end)
 
 -- format on save
