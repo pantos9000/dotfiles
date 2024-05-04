@@ -95,7 +95,13 @@ require('packer').startup(function(use)
     }
 
     -- show current context when out of visible range
-    use "nvim-treesitter/nvim-treesitter-context"
+    use {
+        "nvim-treesitter/nvim-treesitter-context",
+        config = function()
+            vim.keymap.set('n', '<leader>2', ':TSContextToggle<CR>',
+                { noremap = true, silent = true, desc = "Toggle treesitter-context" })
+        end
+    }
 
     -- nicer folding
     use {
