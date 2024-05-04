@@ -37,7 +37,7 @@
     upush = "! git push -u origin $(git symbolic-ref --short HEAD) #"
     fpull = "! git fetch --all && git reset --hard origin/$(git symbolic-ref --short HEAD) #"
     add-postfix = "! git filter-branch -f --msg-filter \"cat && echo -e '$1'\" $2..HEAD #"
-    yolo = "!sh -c \"git commit --author='whatthecommit <null@whatthecommit.com>' -m '$(curl -s https://whatthecommit.com/index.txt)'\""
+    yolo = "!sh -c \"git commit --author='whatthecommit <null@whatthecommit.com>' -m '$(curl -s https://whatthecommit.com/index.txt)'\" #"
 
 [init]
     defaultBranch = master
