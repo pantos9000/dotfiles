@@ -3,6 +3,7 @@ require('mappings')
 require('settings')
 
 -- TODO nvim-tree adjust mappings
+-- TODO i3-like controls
 -- TODO nicer cmp completion menu (borders?)
 -- TODO revisit go to stuff, e.g. definition, code action, ...
 -- TODO retry rust tools? (see video I sent to ali)
