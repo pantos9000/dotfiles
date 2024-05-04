@@ -76,13 +76,18 @@ x = ["extend_to_line_bounds", "select_mode"]
 # use Shift+X to shrink line selection
 X = ["extend_line_up", "extend_to_line_bounds"]
 
+# yank-less delete/change
+d = "delete_selection_noyank"
+c = "change_selection_noyank"
+
 # move faster with ctrl
 C-up = "goto_prev_paragraph"
 C-down = "goto_next_paragraph"
 C-left = "move_prev_word_start"
 C-right = "move_next_word_start"
-C-k = ["extend_line_up", "extend_line_up", "extend_line_up", "extend_line_up", "extend_line_up"]
-C-j = ["extend_line_down", "extend_line_down", "extend_line_down", "extend_line_down", "extend_line_down"]
+C-k = "goto_prev_paragraph"
+C-j ="goto_next_paragraph"
+
 C-h = "move_prev_word_start"
 C-l = "move_next_word_start"
 
@@ -155,7 +160,7 @@ x = ["extend_line"]
 X = ["extend_line_up", "extend_to_line_bounds"]
 
 # yank-less delete/change
-d = "delete_selection_noyank"
+D = "delete_selection_noyank"
 c = "change_selection_noyank"
 
 # move faster with ctrl
@@ -207,7 +212,7 @@ C-space = "completion"
 # toggle gutters (space 1)
 # toggle tab (space tab)
 # _ as word separator?
-# stay in line with right, l, a
+# whichwrap: https://github.com/helix-editor/helix/issues/768
 
 
 
