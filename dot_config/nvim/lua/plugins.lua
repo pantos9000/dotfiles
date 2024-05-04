@@ -36,6 +36,7 @@ require('packer').startup(function(use)
     ---- lsp
     use {
         'VonHeikemen/lsp-zero.nvim',
+        cond = no_vscode,
         branch = 'v2.x',
         requires = {
             -- LSP Support
@@ -93,6 +94,7 @@ require('packer').startup(function(use)
     -- color theme
     use { 'navarasu/onedark.nvim',
         as = 'onedark',
+        cond = no_vscode,
         config = function()
             require('onedark').setup {
                 style = 'deep',
@@ -351,6 +353,7 @@ require('packer').startup(function(use)
     -- faster coloring
     use {
         'NvChad/nvim-colorizer.lua',
+        cond = no_vscode,
         config = function()
             require('colorizer').setup()
         end
