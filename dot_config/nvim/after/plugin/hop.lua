@@ -1,3 +1,7 @@
+if vim.g.vscode ~= nil then
+    return
+end
+
 local hop = require('hop')
 
 hop.setup { keys = 'etovxqpdygfblzhckisuran' }

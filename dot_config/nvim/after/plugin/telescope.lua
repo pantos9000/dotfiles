@@ -1,4 +1,4 @@
-if not packer_plugins['telescope'] or not packer_plugins['telescope'].loaded then
+if vim.g.vscode ~= nil then
     return
 end
 

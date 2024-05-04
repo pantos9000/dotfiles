@@ -1,8 +1,9 @@
-if not packer_plugins['comment'] or not packer_plugins['comment'].loaded then
+if vim.g.vscode ~= nil then
     return
 end
 
-require('comment').setup({
+
+require('Comment').setup({
     sticky = true,
     toggler = {
         line = '<C-c><C-c>',  -- toggle with line comment

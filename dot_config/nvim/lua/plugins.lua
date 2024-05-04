@@ -79,8 +79,8 @@ require('packer').startup(function(use)
             -- show progress
             {
                 'j-hui/fidget.nvim',
-                tag = 'legacy',
                 cond = no_vscode,
+                tag = 'legacy',
             }
         },
     }

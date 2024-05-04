@@ -1,4 +1,4 @@
-if not packer_plugins['notify'] or not packer_plugins['notify'].loaded then
+if vim.g.vscode ~= nil then
     return
 end
 

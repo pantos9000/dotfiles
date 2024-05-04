@@ -1,4 +1,4 @@
-if not packer_plugins['lsp-zero'] or not packer_plugins['lsp-zero'].loaded then
+if vim.g.vscode ~= nil then
     return
 end
 
