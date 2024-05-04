@@ -19,7 +19,7 @@ lsp.on_attach(function(client, bufnr)
     map('n', 'gd', function() vim.lsp.buf.definition() end, { desc = 'go to definition' })
     map('n', 'gD', function() vim.lsp.buf.declaration() end, { desc = 'go to declaration' })
     map('n', 'gt', function() vim.lsp.buf.type_definition() end, { desc = 'go to type definition' })
-    map('n', 'gr', function() vim.lsp.buf.references() end, { desc = 'go to referenc' })
+    map('n', 'gr', function() vim.lsp.buf.references() end, { desc = 'go to reference' })
     map('n', 'gi', function() vim.lsp.buf.implementation() end, { desc = 'go to implementation' })
 
     map('n', 'gq', function() vim.lsp.buf.workspace_symbol() end, { desc = 'query symbols' })
