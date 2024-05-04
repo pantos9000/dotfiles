@@ -1,23 +1,28 @@
-icons = "awesome"
+icons_format = "{icon}"
+
 
 [theme]
-# name = "solarized-dark"
-name = "plain"
-
+# theme = "solarized-dark"
+theme = "plain"
 [theme.overrides]
 separator = " | "
 separator_fg = "#888888"
 
+[icons]
+icons = "awesome5"
+
+
 [[block]]
 block = "weather"
-autolocate = true
+autolocate = false
 interval = 600
 service = { name = "openweathermap", api_key = "18fa5dd1f7f1627974b1920944c22535", city_id = "2892794", units = "metric" }
-format = "[{location}] {weather_verbose} {temp}"
+format = "$icon [$location] $weather_verbose $temp"
+
 
 [[block]]
 block = "external_ip"
-format = "{ip} ({city}, {country_code_iso3})"
+format = "$ip ($city, $country_code_iso3)"
 interval = 300
 error_interval = 30
 [block.theme_overrides]
@@ -28,32 +33,31 @@ critical_fg = "#8B228B" # dark magenta
 
 [[block]]
 block = "net"
-format = "{ip} {speed_down;K*b} {graph_down:8;M*_b} {speed_up;K*b} {graph_down:8;M*_b}"
-format_alt = "{ip} {ssid} ({signal_strength}, {bitrate})"
+# TODO
+#format = "{ip} {speed_down;K*b} {graph_down:8;M*_b} {speed_up;K*b} {graph_down:8;M*_b}"
+#format_alt = "{ip} {ssid} ({signal_strength}, {bitrate})"
 interval = 5
 [block.theme_overrides]
 idle_fg     = "#2E8B57" # sea green
 good_fg     = "#2E8B57" # sea green
 warning_fg  = "#FF8C00" # dark orange
 critical_fg = "#8B228B" # dark magenta
-[block.icons_overrides]
-net_up = "🠕"
-net_down = "🠗"
+
 
 [[block]]
 block = "bluetooth"
 format = "Jabra 75t {percentage}"
-hide_disconnected = true
+disconnected_format = ""
 mac = "50:C2:ED:69:C1:21"
 
 [[block]]
 block = "bluetooth"
 format = "JBL GO 2 {percentage}"
-hide_disconnected = true
+disconnected_format = ""
 mac = "30:C0:1B:63:0D:09"
 
 [[block]]
 block = "bluetooth"
-format = "JBL E65BTNC {percentage}"
-hide_disconnected = true
+format = "JBL E65BTNC $percentage"
+disconnected_format = ""
 mac = "6C:5A:5B:59:F0:4B"
