@@ -71,7 +71,7 @@ clickable = true
 idle_fg = "#DFBE8D" # dark novajo
 good_fg = "#DFBE8D" # dark novajo
 
-{{ if (and (eq .chezmoi.hostname "zhar") (eq .chezmoi.hostname "KARCLT39421")) }}
+{{ if (or (eq .chezmoi.hostname "zhar") (eq .chezmoi.hostname "KARCLT39421")) }}
 [[block]]
 block = "backlight"
 cycle = [100, 75, 50, 25, 5]
