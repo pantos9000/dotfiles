@@ -7,6 +7,7 @@ require('settings')
 -- TODO revisit go to stuff, e.g. definition, code action, ...
 -- TODO retry rust tools? (see video I sent to ali)
 -- TODO look at plugins from nvchad
+--   e.g. https://github.com/jose-elias-alvarez/buftabline.nvim
 -- TODO friendly-snippets?
 --      https://sharksforarms.dev/posts/neovim-rust/
 -- TODO debugging with https://github.com/mfussenegger/nvim-dap ?
