@@ -8,7 +8,7 @@ function pacmeld
         return 1
     end
 
-    if [ "XDG_SESSION_TYPE" = "wayland" ]
+    if [ "$XDG_SESSION_TYPE" = "wayland" ]
         echo "enter root password." 1>&2
         command su -c "DIFFPROG=meld pacdiff"
     else
