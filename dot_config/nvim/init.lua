@@ -2,8 +2,11 @@ require('plugins')
 require('mappings')
 require('settings')
 
+-- TODO nvim-tree adjust mappings
 -- TODO nicer cmp completion menu (borders?)
 -- TODO revisit go to stuff, e.g. definition, code action, ...
+-- TODO retry rust tools? (see video I sent to ali)
+-- TODO look at plugins from nvchad
 -- TODO friendly-snippets?
 --      https://sharksforarms.dev/posts/neovim-rust/
 -- TODO debugging with https://github.com/mfussenegger/nvim-dap ?

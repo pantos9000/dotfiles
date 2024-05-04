@@ -42,8 +42,10 @@ lsp.on_attach(function(client, bufnr)
     map('n', '<C-h>', vim.lsp.buf.signature_help, { desc = 'signature help' })
     map('i', '<C-h>', vim.lsp.buf.signature_help, { desc = 'signature help' })
 
+    -- map('n', 'ga', function() vim.lsp.buf.code_action() end, { desc = 'code action' })
     map('n', 'ga', vim.cmd.CodeActionMenu, { desc = 'code action' })
-    map('v', 'ga', vim.cmd.CodeActionMenu, { desc = 'code action' })
+    -- TODO nicer code action
+    -- TODO code action range?
 
     map('n', 'F2', vim.lsp.buf.rename, { desc = 'rename symbol under cursor' })
     map('n', 'F3', vim.lsp.buf.format, { desc = 'format file' })
@@ -60,6 +62,9 @@ lsp.format_on_save({
     servers = {
         ['lua_ls'] = { 'lua' },
         ['rust_analyzer'] = { 'rust' },
+        ['pylsp'] = { 'python' },
+        ['neocmake'] = { 'cmake' },
+        ['clangd'] = { 'c', 'cpp', 'cs', 'cuda' },
         -- if you have a working setup with null-ls
         -- you can specify filetypes it can format.
         -- ['null-ls'] = {'javascript', 'typescript'},
@@ -70,12 +75,15 @@ lsp.format_on_save({
 lsp.ensure_installed({
     'lua_ls',
     'rust_analyzer',
-    'pyright',
+    'pylsp',
     'tsserver',
     'eslint',
     'clangd',
+    'neocmake',
+    'bashls',
 })
 
+-- TODO
 -- rust-analyzer will be setup by rust-tools
 -- lsp.skip_server_setup({ 'rust-analyzer' })
 

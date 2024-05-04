@@ -51,7 +51,7 @@ require('packer').startup(function(use)
             -- better code action menu
             {
                 'weilbith/nvim-code-action-menu',
-                cmd = 'CodeActionMenu',
+                cmd = 'CodeActionMenu', -- TODO
             },
 
             -- inlay hints
@@ -154,6 +154,19 @@ require('packer').startup(function(use)
             'kevinhwang91/promise-async',
             "luukvbaal/statuscol.nvim", -- remove pesky foldlevel numbers from foldcolumn
         }
+    }
+
+    use {
+        'nvim-tree/nvim-tree.lua',
+        requires = 'nvim-tree/nvim-web-devicons'
+    }
+
+    -- faster coloring
+    use {
+        'NvChad/nvim-colorizer.lua',
+        config = function()
+            require('colorizer').setup()
+        end
     }
 end)
 
