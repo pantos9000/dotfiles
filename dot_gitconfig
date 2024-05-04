@@ -43,11 +43,24 @@
 [init]
     defaultBranch = master
 
-[include]
-    path = ~/.gitconfig.user
 [branch]
-	sort = -committerdate
+    sort = -committerdate
 [fetch]
-	writeCommitGraph = true
+    writeCommitGraph = true
 [rebase]
-	updateRefs = true
+    updateRefs = true
+
+# directory-specific identities
+#
+# example config:
+# [user]
+#     email = foo@bar.baz
+#     name = Foo
+# [core]
+#     sshCommand = ssh -i ~/.ssh/foo
+
+[includeIf "gitdir:~/work/"]
+    path = ~/work/.gitconfig
+
+[includeIf "gitdir:~/pantos9000/"]
+    path = ~/pantos9000/.gitconfig
