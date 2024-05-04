@@ -14,9 +14,6 @@ fi
 # update terminal text colors and font
 xrdb -merge ~/.Xresources
 
-# set keyboard layout
-setxkbmap -layout de,de -variant ',ru' -option 'grp:shift_caps_toggle,grp_led:scroll,compose:menu,terminate:ctrl_alt_bksp'
-
 # exec gnome-session
 # exec startkde
 # exec dbus-launch startxfce4
