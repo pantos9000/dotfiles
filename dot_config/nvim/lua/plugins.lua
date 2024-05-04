@@ -23,6 +23,19 @@ require('packer').startup(function(use)
         run = ':TSUpdate'
     }
 
+    -- snippets
+    use {
+        "L3MON4D3/LuaSnip",
+        tag = "v2.*",                 -- follow latest release.
+        run = "make install_jsregexp" -- install jsregexp (optional!:).
+    }
+    use {
+        "rafamadriz/friendly-snippets",
+        config = function()
+            require("luasnip.loaders.from_vscode").lazy_load()
+        end,
+    }
+
     ---- lsp
     use {
         'VonHeikemen/lsp-zero.nvim',
@@ -42,12 +55,6 @@ require('packer').startup(function(use)
             -- Autocompletion
             { 'hrsh7th/nvim-cmp' },     -- Required
             { 'hrsh7th/cmp-nvim-lsp' }, -- Required
-            {
-                "L3MON4D3/LuaSnip",
-                tag = "v1.*",                 -- follow latest release.
-                run = "make install_jsregexp" -- install jsregexp (optional!:).
-            },
-
             -- additional completion
             { 'hrsh7th/cmp-path' },
             { 'hrsh7th/cmp-buffer' },
