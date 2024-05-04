@@ -2,11 +2,9 @@ require('plugins')
 require('mappings')
 require('settings')
 
--- TODO oil
 -- TODO try out https://astronvim.com/Configuration/plugin_defaults
---      - https://github.com/stevearc/oil.nvim
 --      - https://github.com/stevearc/aerial.nvim
---      - WEITER: nvim-notify
+--      - WEITER: smart-splits
 -- TODO missing opt:
 -- - go to definition in new pane
 -- - autocomplete from tmux panes?

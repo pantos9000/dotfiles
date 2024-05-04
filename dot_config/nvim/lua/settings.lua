@@ -59,8 +59,8 @@ vim.opt.colorcolumn = "100"
 -- turn off modelines
 vim.opt.modeline = false
 
--- only enable mouse in visual mode (for mark&copy in other modes)
-vim.opt.mouse = 'v'
+-- only enable mouse in visual and normal mode (for mark&copy in other modes)
+vim.opt.mouse = 'nv'
 
 -- auto reload changed files
 vim.opt.autoread = true

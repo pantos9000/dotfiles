@@ -167,16 +167,19 @@ require('packer').startup(function(use)
     use { 'stevearc/dressing.nvim' }
 
     -- nicer file explorer
-    use {
-        'nvim-tree/nvim-tree.lua',
-        requires = 'nvim-tree/nvim-web-devicons',
-    }
+    use { 'stevearc/oil.nvim' }
 
     -- easier windows moving
     use 'sindrets/winshift.nvim'
 
+    -- easier windows resizing
+    use 'mrjones2014/smart-splits.nvim' -- TODO
+
     -- additional targets
     use 'wellle/targets.vim' -- 'change inside' e.g. for '_', '|', ...
+
+    -- treesitter targets
+    use 'RRethy/nvim-treesitter-textsubjects'
 
     -- faster coloring
     use {

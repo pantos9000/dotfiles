@@ -30,7 +30,7 @@ map('i', '<S-Right>', "<C-o>>>", { desc = 'move line right' })
 
 -- window controls
 map('n', '<tab>', '<C-w><C-w>', { desc = 'tab through windows' })
--- <C-w>m for winshift
+-- <C-w>m for winshift is defined in after/plugin
 map('n', '<C-w>v', '<cmd> split<CR>', { noremap = false, desc = 'vertical split' })
 map('n', '<C-w>h', '<cmd> vsplit<CR>', { noremap = false, desc = 'horizontal split' })
 
