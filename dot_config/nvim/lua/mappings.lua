@@ -88,8 +88,8 @@ map('i', '<C-S-w>', '<C-u>', { desc = 'delete until start of line' })
 map('n', '<leader><Space>', ':noh<CR>', { desc = 'clear highlighting' })
 
 -- access markers
-map('n', ',', "'", { desc = 'markers' })
-map('v', ',', "'", { desc = 'markers' })
+map('n', 'M', "'", { desc = 'markers' })
+map('v', 'M', "'", { desc = 'markers' })
 
 -- toggle mouse
 map('n', '<leader>m', function()
