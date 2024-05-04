@@ -10,6 +10,21 @@ end
 
 map('n', '<leader>pe', vim.cmd.Ex, { desc = 'file explorer' })
 
+-- easily go to start/end of blocks
+map('n', '<Tab>', '<plug>(matchup-%)')
+map('n', '<S-Tab>', function()
+    local col = vim.api.nvim_win_get_cursor(0)[2]
+    local char = vim.api.nvim_get_current_line():sub(col + 1, col + 1)
+    if string.match(char, '[([{<]') then
+        vim.cmd(':call search("[([{<]", "bW")')
+    else
+        vim.cmd(':call search("[])}>]", "W")')
+    end
+end)
+
+
+-- '<cmd>call search("[([{<]")<CR>')
+
 -- go forward/backward
 map('n', 'gb', '<C-o>', { remap = true, desc = 'go backward in history' })
 map('n', 'gf', '<C-i>', { remap = true, desc = 'go forward in history' })
@@ -29,7 +44,6 @@ map('v', '<S-Right>', ">gv", { desc = 'move selection right' })
 map('i', '<S-Right>', "<C-o>>>", { desc = 'move line right' })
 
 -- window controls
-map('n', '<tab>', '<C-w><C-w>', { desc = 'tab through windows' })
 -- <C-w>m for winshift is defined in after/plugin
 map('n', '<C-w>v', '<cmd> split<CR>', { noremap = false, desc = 'vertical split' })
 map('n', '<C-w>h', '<cmd> vsplit<CR>', { noremap = false, desc = 'horizontal split' })
