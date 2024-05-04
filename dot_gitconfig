@@ -37,3 +37,6 @@
     fpull = "! git fetch --all && git reset --hard origin/$(git symbolic-ref --short HEAD)"
     ; fpull = "! git fetch --all && git reset --hard $(git rev-parse --symbolic-full-name --abbrev-ref @{upstream})"
     fsync = "! current=$(git symbolic-ref --short HEAD) ; git fetch --all && git branch -r | grep -v '\\->' | while read remote ; do git checkout ${remote#origin/} && git reset --hard \"${remote}\" ; done && git checkout ${current}"
+
+[init]
+    defaultBranch = master
