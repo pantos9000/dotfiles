@@ -45,8 +45,8 @@ lsp.on_attach(function(client, bufnr)
     map('n', 'ga', vim.cmd.CodeActionMenu, { desc = 'code action' })
     map('v', 'ga', vim.cmd.CodeActionMenu, { desc = 'code action' })
 
-    map('n', 'F2', vim.lsp.buf.rename, { desc = 'rename symbol under cursor' })
-    map('n', 'F3', vim.lsp.buf.format, { desc = 'format file' })
+    map('n', '<F2>', vim.lsp.buf.rename, { desc = 'rename symbol under cursor' }) -- TODO change
+    map('n', '<F3>', vim.lsp.buf.format, { desc = 'format file' })
 
     map('n', '<leader>h', inlay_hints.toggle, { desc = 'toggle inlay hints' })
 end)
