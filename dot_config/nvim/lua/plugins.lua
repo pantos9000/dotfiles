@@ -189,9 +189,6 @@ require('packer').startup(function(use)
     -- additional targets
     use 'wellle/targets.vim' -- 'change inside' e.g. for '_', '|', ...
 
-    -- treesitter targets
-    use 'RRethy/nvim-treesitter-textsubjects'
-
 
     --------------------
     -- Editing Convenience

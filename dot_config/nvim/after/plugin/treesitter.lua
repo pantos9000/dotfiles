@@ -39,4 +39,15 @@ require 'nvim-treesitter.configs'.setup {
         -- Instead of true it can also be a list of languages
         additional_vim_regex_highlighting = false,
     },
+
+    -- smart select
+    incremental_selection = {
+        enable = true,
+        keymaps = {
+            init_selection = '<CR>',
+            scope_incremental = nil,
+            node_incremental = '<CR>',
+            node_decremental = '<BS>',
+        },
+    },
 }
