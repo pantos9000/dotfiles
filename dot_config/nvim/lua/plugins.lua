@@ -272,12 +272,12 @@ require('packer').startup(function(use)
     use {
         'phaazon/hop.nvim',
         branch = 'v2', -- optional but strongly recommended
-        config = require('configs/config_hop'),
     }
 
     -- toggle comments
     use { 'numToStr/Comment.nvim',
-        -- cond = no_vscode,
+        cond = no_vscode,
+        config = require('configs/config_comment'),
     }
 
     -- automatically close brackets when opening them
