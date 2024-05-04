@@ -149,6 +149,19 @@ require('packer').startup(function(use)
         end
     })
 
+    -- subword movement with w, e, b
+    use {
+        "chrisgrieser/nvim-spider",
+        config = function()
+            local modes = { 'n', 'x' }
+            local spider = require('spider')
+            vim.keymap.set(modes, 'w', function() spider.motion('w') end)
+            vim.keymap.set(modes, 'e', function() spider.motion('e') end)
+            vim.keymap.set(modes, 'b', function() spider.motion('b') end)
+            vim.keymap.set(modes, 'q', function() spider.motion('b') end)
+        end
+    }
+
     -- additional targets
     use 'wellle/targets.vim' -- 'change inside' e.g. for '_', '|', ...
 
