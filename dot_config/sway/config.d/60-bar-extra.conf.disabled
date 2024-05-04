@@ -1,0 +1,22 @@
+#
+# Status Bar:
+#
+# Read `man 5 sway-bar` for more information about this section.
+bar {
+    id extra_bar
+
+    # status bar command
+    status_command py3status -s -c $CONFIG_DIR/bars/extra_bar.conf -i $CONFIG_DIR/bars/modules
+
+    mode dock
+    position top
+    output $OUT_HDMI_1
+    output $OUT_DP_1
+    output $OUT_DP_2
+    tray_output none
+    font $BAR_FONT
+    workspace_buttons yes
+    strip_workspace_numbers no
+    binding_mode_indicator yes
+    separator_symbol " | "
+}

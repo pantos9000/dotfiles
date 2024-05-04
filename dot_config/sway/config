@@ -1,0 +1,18 @@
+# Read `man 5 sway` for a complete reference.
+
+# mod key. Use Mod1 for Alt, Mod4 for super
+set $MOD Mod4
+
+# some directories
+set $CONFIG_DIR ~/.config/sway
+set $SCRIPTS_DIR ~/.config/sway/scripts
+
+# preferred terminal emulator
+set $TERM alacritty
+
+# set font for bars
+set $BAR_FONT pango:DejaVu Sans Mono, FontAwesome 9
+
+# load configs
+include $CONFIG_DIR/config.d/*.conf
+include /etc/sway/config.d/*
