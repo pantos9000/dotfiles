@@ -86,6 +86,7 @@
         "memleak",
         "metablock",
         "METABLOCK",
+        "miri",
         "mkfifo",
         "Möbius",
         "mockall",
