@@ -117,6 +117,7 @@ cmp.setup({
     sources = cmp.config.sources {
         { name = "nvim_lsp", priority = 1000 },
         { name = "luasnip",  priority = 750 },
+        { name = "neorg",    priority = 600 },
         { name = "buffer",   priority = 500 },
         { name = "tmux",     priority = 300 },
         { name = "path",     priority = 250 },
