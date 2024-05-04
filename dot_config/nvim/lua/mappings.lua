@@ -128,3 +128,7 @@ map('n', '<leader>1', function()
     vim.opt.foldcolumn = new_val and '1' or '0'
     print('gutters are now ' .. (new_val and "shown" or "hidden"))
 end, { desc = 'toggle gutters' })
+
+-- toggle diagnostic
+map('n', 'ge', function() vim.diagnostic.open_float(0, { scope = "line" }) end,
+    { desc = 'show error diagnostic for current line' })

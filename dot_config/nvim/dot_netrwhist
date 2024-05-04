@@ -1,0 +1,12 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhistcnt =8
+let g:netrw_dirhist_8='/tmp/git-difftool.dW6bvt/right'
+let g:netrw_dirhist_7='/tmp/git-difftool.dW6bvt/right/.config'
+let g:netrw_dirhist_6='/tmp/git-difftool.dW6bvt/right/.config/i3'
+let g:netrw_dirhist_5='/tmp/git-difftool.dW6bvt/right/.config/i3/scripts'
+let g:netrw_dirhist_4='/tmp/git-difftool.dW6bvt/left/.config/i3/scripts'
+let g:netrw_dirhist_3='/tmp/git-difftool.dW6bvt/right/.config/i3/scripts'
+let g:netrw_dirhist_2='/tmp/git-difftool.dW6bvt/right/.config/i3'
+let g:netrw_dirhist_1='/tmp/git-difftool.dW6bvt/right/.config'
+let g:netrw_dirhist_0='/tmp/git-difftool.dW6bvt/right'
+let g:netrw_dirhist_9='/tmp/git-difftool.dW6bvt/left/.config/i3/scripts'
