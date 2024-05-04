@@ -132,3 +132,7 @@ end, { desc = 'toggle gutters' })
 -- toggle diagnostic
 map('n', 'ge', function() vim.diagnostic.open_float(0, { scope = "line" }) end,
     { desc = 'show error diagnostic for current line' })
+
+-- next/prev diagnostic
+map('n', 'gn', vim.diagnostic.goto_next, { desc = 'next diagnostic' })
+map('n', 'gp', vim.diagnostic.goto_next, { desc = 'prev diagnostic' })

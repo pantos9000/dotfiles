@@ -1,6 +1,18 @@
-vim.cmd [[packadd packer.nvim]]
+-- ensure the packer plugin manager is installed
+local ensure_packer = function()
+    local fn = vim.fn
+    local install_path = fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
+    if fn.empty(fn.glob(install_path)) > 0 then
+        fn.system({ "git", "clone", "--depth", "1", "https://github.com/wbthomason/packer.nvim", install_path })
+        vim.cmd([[packadd packer.nvim]])
+        return true
+    end
+    return false
+end
 
-return require('packer').startup(function(use)
+local packer_bootstrap = ensure_packer()
+
+require('packer').startup(function(use)
     -- Packer can manage itself
     use 'wbthomason/packer.nvim'
 
@@ -30,13 +42,20 @@ return require('packer').startup(function(use)
             -- Autocompletion
             { 'hrsh7th/nvim-cmp' },     -- Required
             { 'hrsh7th/cmp-nvim-lsp' }, -- Required
-            { 'L3MON4D3/LuaSnip' },     -- Required
+            { 'hrsh7th/cmp-vsnip' },    -- Required
+
+            -- additional completion
+            { 'hrsh7th/cmp-path' },
+            { 'hrsh7th/cmp-buffer' },
 
             -- better code action menu
             {
                 'weilbith/nvim-code-action-menu',
-                cmd = 'CodeActionMenu',
-            }
+                cmd = 'CodeActionMenu', -- TODO
+            },
+
+            -- inlay hints
+            { 'lvimuser/lsp-inlayhints.nvim' },
         }
     }
 
@@ -129,10 +148,28 @@ return require('packer').startup(function(use)
     }
 
     -- nicer folding
-    use { 'kevinhwang91/nvim-ufo',
+    use {
+        'kevinhwang91/nvim-ufo',
         requires = {
             'kevinhwang91/promise-async',
             "luukvbaal/statuscol.nvim", -- remove pesky foldlevel numbers from foldcolumn
         }
     }
+
+    -- rust
+    -- use {
+    -- 	'simrat39/rust-tools.nvim',
+    -- 	requires = {
+    -- 		'neovim/nvim-lspconfig',
+    -- 		-- debugging
+    -- 		'nvim-lua/plenary.nvim',
+    -- 		'mfussenegger/nvim-dap',
+    -- 	}
+    -- }
 end)
+
+-- the first run will install packer and our plugins
+if packer_bootstrap then
+    require("packer").sync()
+    return
+end
