@@ -16,27 +16,15 @@ require('packer').startup(function(use)
     -- Packer can manage itself
     use 'wbthomason/packer.nvim'
 
+    --------------------
+    -- LSP and other stuff
+    --------------------
+
     -- treesitter
     use {
         'nvim-treesitter/nvim-treesitter',
         as = 'treesitter',
         run = ':TSUpdate'
-    }
-
-    use "nvim-treesitter/nvim-treesitter-context"
-
-
-    -- snippets
-    use {
-        "L3MON4D3/LuaSnip",
-        tag = "v2.*",                 -- follow latest release.
-        run = "make install_jsregexp" -- install jsregexp (optional!:).
-    }
-    use {
-        "rafamadriz/friendly-snippets",
-        config = function()
-            require("luasnip.loaders.from_vscode").lazy_load()
-        end,
     }
 
     ---- lsp
@@ -83,6 +71,11 @@ require('packer').startup(function(use)
         }
     }
 
+
+    --------------------
+    -- Appearance
+    --------------------
+
     -- color theme
     use { 'navarasu/onedark.nvim',
         as = 'onedark',
@@ -101,6 +94,9 @@ require('packer').startup(function(use)
         requires = { 'nvim-tree/nvim-web-devicons', opt = false }
     }
 
+    -- show current context when out of visible range
+    use "nvim-treesitter/nvim-treesitter-context"
+
     -- nicer folding
     use {
         'kevinhwang91/nvim-ufo',
@@ -113,23 +109,34 @@ require('packer').startup(function(use)
     -- nicer nvim ui
     use { 'stevearc/dressing.nvim' }
 
+    -- nicer highlight of braces, keywords, ...
+    use {
+        'andymass/vim-matchup',
+        setup = function()
+            vim.g.matchup_matchparen_offscreen = { method = "popup" }
+        end
+    }
+
     -- nicer notifications
     use {
         'rcarriga/nvim-notify',
         requires = { 'nvim-telescope/telescope.nvim' },
     }
 
-    -- fuzzy finder
-    use {
-        'nvim-telescope/telescope.nvim', branch = '0.1.x',
-        requires = { { 'nvim-lua/plenary.nvim' } }
-    }
-
-    -- undo
-    use 'mbbill/undotree'
-
     -- show help menu
     use "folke/which-key.nvim"
+
+    -- sidebar for quick code navigation
+    use 'stevearc/aerial.nvim'
+
+    -- view for errors/warnings/info
+    use {
+        "folke/trouble.nvim",
+        requires = "nvim-tree/nvim-web-devicons",
+    }
+
+    -- nicer file explorer
+    use { 'stevearc/oil.nvim' }
 
     -- git
     use {
@@ -138,21 +145,16 @@ require('packer').startup(function(use)
     }
     use 'tpope/vim-fugitive'
 
-    -- jump around, jump around, jump up jump up and get down
-    use {
-        'phaazon/hop.nvim',
-        branch = 'v2', -- optional but strongly recommended
-        -- config = function()
-        -- you can configure Hop the way you like here; see :h hop-config
-        -- require 'hop'.setup { keys = 'etovxqpdygfblzhckisuran' }
-        -- end
-    }
+    -- easier windows moving
+    use 'sindrets/winshift.nvim'
 
-    -- toggle comments
-    use 'numToStr/Comment.nvim'
+    -- easier windows resizing
+    use 'mrjones2014/smart-splits.nvim'
 
-    -- automatically close brackets when opening them
-    use 'windwp/nvim-autopairs'
+
+    --------------------
+    -- Motions
+    --------------------
 
     -- add 'surround' motion
     use({
@@ -184,6 +186,49 @@ require('packer').startup(function(use)
     -- treesitter targets
     use 'RRethy/nvim-treesitter-textsubjects'
 
+
+    --------------------
+    -- Editing Convenience
+    --------------------
+
+    -- undo
+    use 'mbbill/undotree'
+
+    -- fuzzy finder
+    use {
+        'nvim-telescope/telescope.nvim', branch = '0.1.x',
+        requires = { { 'nvim-lua/plenary.nvim' } }
+    }
+
+    -- snippets
+    use {
+        "L3MON4D3/LuaSnip",
+        tag = "v2.*",                 -- follow latest release.
+        run = "make install_jsregexp" -- install jsregexp (optional!:).
+    }
+    use {
+        "rafamadriz/friendly-snippets",
+        config = function()
+            require("luasnip.loaders.from_vscode").lazy_load()
+        end,
+    }
+
+    -- jump around, jump around, jump up jump up and get down
+    use {
+        'phaazon/hop.nvim',
+        branch = 'v2', -- optional but strongly recommended
+        -- config = function()
+        -- you can configure Hop the way you like here; see :h hop-config
+        -- require 'hop'.setup { keys = 'etovxqpdygfblzhckisuran' }
+        -- end
+    }
+
+    -- toggle comments
+    use 'numToStr/Comment.nvim'
+
+    -- automatically close brackets when opening them
+    use 'windwp/nvim-autopairs'
+
     -- cumulative increment in visual mode
     use {
         'https://github.com/triglav/vim-visual-increment',
@@ -198,6 +243,7 @@ require('packer').startup(function(use)
     use {
         'gennaro-tedesco/nvim-peekup',
         config = function()
+            -- menu with '""'
             vim.keymap.set('n', '<leader>"p', '<Plug>PeekupPasteAfter', { desc = 'paste register after cursor' })
             vim.keymap.set('n', '<leader>"P', '<Plug>PeekupPasteBefore', { desc = 'paste register before cursor' })
         end
@@ -211,16 +257,15 @@ require('packer').startup(function(use)
         end
     }
 
-    -- view for errors/warnings/info
-    use {
-        "folke/trouble.nvim",
-        requires = "nvim-tree/nvim-web-devicons",
-    }
+    -- text alignment
+    use { 'echasnovski/mini.align', branch = 'stable' }
 
-    -- nicer file explorer
-    use { 'stevearc/oil.nvim' }
 
-    -- neo org mode
+    --------------------
+    -- Org mode
+    --------------------
+
+    -- neorg
     use {
         "nvim-neorg/neorg",
         ft = "norg",   -- only load in norg files
@@ -397,17 +442,12 @@ require('packer').startup(function(use)
         },
     }
 
-    -- sidebar for quick code navigation
-    use 'stevearc/aerial.nvim'
 
-    -- easier windows moving
-    use 'sindrets/winshift.nvim'
+    --------------------
+    -- Performance
+    --------------------
 
-    -- easier windows resizing
-    use 'mrjones2014/smart-splits.nvim'
-
-    -- text alignment
-    use { 'echasnovski/mini.align', branch = 'stable' }
+    -- NOTE: this section should come last, as stuff might be overridden
 
     -- faster coloring
     use {
