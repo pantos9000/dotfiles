@@ -1,0 +1,308 @@
+// Place your key bindings in this file to override the defaults
+[
+    //////////
+    // General vscode behavior
+    //////////
+
+    // don't use enter as newline when intelliSense suggestions are shown
+    {
+        "key": "enter",
+        "command": "acceptSelectedSuggestion",
+        "when": "editorTextFocus && suggestWidgetVisible"
+    },
+
+    //////////
+    // additional vim bindings
+    //////////
+
+    // disable ctrl+v for pasting -> use for visual block mode
+    {
+        "key": "ctrl+v",
+        "command": "-editor.action.clipboardPasteAction",
+        "when": "textInputFocus && !editorReadonly"
+    },
+
+    // ctrl up/down to jump 10 lines
+    {
+        "key": "ctrl+up",
+        "command": "cursorMove",
+        "args": {
+            "to": "up",
+            "by": "line",
+            "value": 10
+        },
+        "when": "editorTextFocus"
+    },
+    {
+        "key": "ctrl+down",
+        "command": "cursorMove",
+        "args": {
+            "to": "down",
+            "by": "line",
+            "value": 10
+        },
+        "when": "editorTextFocus"
+    },
+
+    // ctrl+c to toggle comment
+    {
+        "key": "ctrl+c",
+        "command": "editor.action.commentLine",
+        "when": "editorTextFocus && !editorReadonly"
+    },
+
+    // shift+arrow to move text
+    {
+        "key": "shift+left",
+        "command": "editor.action.outdentLines",
+        "when": "editorTextFocus && !editorReadonly"
+    },
+    {
+        "key": "shift+right",
+        "command": "editor.action.indentLines",
+        "when": "editorTextFocus && !editorReadonly"
+    },
+    {
+        "key": "shift+up",
+        "command": "editor.action.moveLinesUpAction",
+        "when": "editorTextFocus && !editorReadonly"
+    },
+    {
+        "key": "shift+down",
+        "command": "editor.action.moveLinesDownAction",
+        "when": "editorTextFocus && !editorReadonly"
+    },
+
+    //////////
+    // editor focus related
+    //////////
+
+    // maximize
+    {
+        "key": "alt+f",
+        "command": "workbench.action.toggleEditorWidths",
+        "when": "editorFocus"
+    },
+    {
+        "key": "alt+f",
+        "command": "workbench.action.toggleMaximizedPanel",
+        "when": "panelFocus"
+    },
+
+    // alt+arrow for navigation
+    {
+        "key": "alt+left",
+        "command": "workbench.action.navigateLeft"
+    },
+    {
+        "key": "alt+right",
+        "command": "workbench.action.navigateRight"
+    },
+    {
+        "key": "alt+up",
+        "command": "workbench.action.navigateUp",
+        "when": "!sideBarFocus"
+    },
+    {
+        "key": "alt+down",
+        "command": "workbench.action.navigateDown",
+        "when": "!sideBarFocus"
+    },
+    // ctrl+alt+arrow to switch editor
+    {
+        "key": "ctrl+alt+left",
+        "command": "workbench.action.previousEditor"
+    },
+    {
+        "key": "ctrl+alt+right",
+        "command": "workbench.action.nextEditor"
+    },
+    // alt+shift+arrow to move editor
+    {
+        "key": "shift+alt+left",
+        "command": "workbench.action.moveEditorLeftInGroup"
+    },
+    {
+        "key": "shift+alt+right",
+        "command": "workbench.action.moveEditorRightInGroup"
+    },
+    // alt+tab/alt+shift+tab for moving back/forward
+    {
+        "key": "alt+tab",
+        "command": "workbench.action.navigateBack"
+    },
+    {
+        "key": "alt+shift+tab",
+        "command": "workbench.action.navigateForward"
+    },
+
+    //////////
+    // sidebar focus related
+    //////////
+
+    // switch from/to sidebar
+    {
+        "key": "alt+y",
+        "command": "workbench.view.explorer",
+        "when": "!sideBarFocus"
+    },
+    {
+        "key": "alt+y",
+        "command": "workbench.action.closeSidebar",
+        "when": "sideBarFocus"
+    },
+
+    // focus sidebar items
+    {
+        "key": "alt+up",
+        "command": "workbench.view.extensions",
+        "when": "sideBarFocus && activeViewlet == workbench.view.explorer"
+    },
+    {
+        "key": "alt+down",
+        "command": "workbench.view.search",
+        "when": "sideBarFocus && activeViewlet == workbench.view.explorer"
+    },
+    {
+        "key": "alt+up",
+        "command": "workbench.view.explorer",
+        "when": "sideBarFocus && activeViewlet == workbench.view.search"
+    },
+    {
+        "key": "alt+down",
+        "command": "workbench.view.scm",
+        "when": "sideBarFocus && activeViewlet == workbench.view.search"
+    },
+    {
+        "key": "alt+up",
+        "command": "workbench.view.search",
+        "when": "sideBarFocus && activeViewlet == workbench.view.scm"
+    },
+    {
+        "key": "alt+down",
+        "command": "workbench.view.debug",
+        "when": "sideBarFocus && activeViewlet == workbench.view.scm"
+    },
+    {
+        "key": "alt+up",
+        "command": "workbench.view.scm",
+        "when": "sideBarFocus && activeViewlet == workbench.view.debug"
+    },
+    {
+        "key": "alt+down",
+        "command": "workbench.view.extensions",
+        "when": "sideBarFocus && activeViewlet == workbench.view.debug"
+    },
+    {
+        "key": "alt+up",
+        "command": "workbench.view.debug",
+        "when": "sideBarFocus && activeViewlet == workbench.view.extensions"
+    },
+    {
+        "key": "alt+down",
+        "command": "workbench.view.explorer",
+        "when": "sideBarFocus && activeViewlet == workbench.view.extensions"
+    },
+
+    //////////
+    // panel focus related
+    //////////
+
+    // switch to panel
+    {
+        "key": "alt+x",
+        "command": "workbench.action.togglePanel"
+    },
+
+    // focus panel items
+    {
+        "key": "alt+left",
+        "command": "workbench.panel.markers.view.focus",
+        "when": "panelFocus && activePanel == workbench.panel.output"
+    },
+    {
+        "key": "alt+right",
+        "command": "workbench.action.terminal.focus",
+        "when": "panelFocus && activePanel == workbench.panel.output"
+    },
+    {
+        "key": "alt+left",
+        "command": "workbench.panel.output.focus",
+        "when": "panelFocus && terminalFocus"
+    },
+    {
+        "key": "alt+right",
+        "command": "workbench.panel.repl.view.focus",
+        "when": "panelFocus && terminalFocus"
+    },
+    {
+        "key": "alt+left",
+        "command": "workbench.action.terminal.focus",
+        "when": "panelFocus && activePanel == workbench.panel.repl"
+    },
+    {
+        "key": "alt+right",
+        "command": "workbench.panel.markers.view.focus",
+        "when": "panelFocus && activePanel == workbench.panel.repl"
+    },
+    {
+        "key": "alt+left",
+        "command": "workbench.panel.repl.view.focus",
+        "when": "panelFocus && activePanel == workbench.panel.markers"
+    },
+    {
+        "key": "alt+right",
+        "command": "workbench.panel.output.focus",
+        "when": "panelFocus && activePanel == workbench.panel.markers"
+    },
+
+    //////////
+    // remove default behavior
+    //////////
+
+    {
+        "key": "alt+down",
+        "command": "-editor.action.moveLinesDownAction",
+        "when": "editorTextFocus && !editorReadonly"
+    },
+    {
+        "key": "alt+down",
+        "command": "-workbench.action.terminal.focusNextPane",
+        "when": "terminalFocus"
+    },
+    {
+        "key": "alt+pagedown",
+        "command": "-scrollPageDown",
+        "when": "textInputFocus"
+    },
+    {
+        "key": "alt+down",
+        "command": "-showNextParameterHint",
+        "when": "editorFocus && parameterHintsMultipleSignatures && parameterHintsVisible"
+    },
+    {
+        "key": "alt+down",
+        "command": "-history.showNext",
+        "when": "historyNavigationEnabled && historyNavigationWidget"
+    },
+    {
+        "key": "alt+up",
+        "command": "-editor.action.moveLinesUpAction",
+        "when": "editorTextFocus && !editorReadonly"
+    },
+    {
+        "key": "alt+up",
+        "command": "-workbench.action.terminal.focusPreviousPane",
+        "when": "terminalFocus"
+    },
+    {
+        "key": "alt+up",
+        "command": "-history.showPrevious",
+        "when": "historyNavigationEnabled && historyNavigationWidget"
+    },
+    {
+        "key": "alt+up",
+        "command": "-showPrevParameterHint",
+        "when": "editorFocus && parameterHintsMultipleSignatures && parameterHintsVisible"
+    },
+]
