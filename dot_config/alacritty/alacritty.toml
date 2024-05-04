@@ -1,0 +1,82 @@
+# see doc at man 5 alacritty
+
+[colors.bright]
+black = "0x555555"
+blue = "0x5555ff"
+cyan = "0x55ffff"
+green = "0x55ff55"
+magenta = "0xff55ff"
+red = "0xff5555"
+white = "0xffffff"
+yellow = "0xffff55"
+
+[colors.normal]
+black = "0x000000"
+blue = "0x4444bb"
+cyan = "0x00aaaa"
+green = "0x00aa00"
+magenta = "0xaa00aa"
+red = "0xaa0000"
+white = "0xe8e9ca"
+yellow = "0xaa5500"
+
+[colors.primary]
+background = "0x000000"
+bright_foreground = "0xeaeaea"
+dim_foreground = "0xa8a9ba"
+foreground = "0xe8e9ca"
+
+[colors.search.focused_match]
+background = "#000000"
+foreground = "#c5c8c6"
+
+[colors.footer_bar]
+background = "#c5c8c6"
+foreground = "#1d1f21"
+
+[colors.search.matches]
+background = "#ffffff"
+foreground = "#000000"
+
+[colors.vi_mode_cursor]
+cursor = "0x00aa00"
+text = "CellBackground"
+
+[cursor]
+vi_mode_style = "Underline"
+
+[font]
+size = 8.0
+
+[hints]
+alphabet = "asdfgqwertlhjklzuiop"
+
+[[hints.enabled]]
+action = "Copy"
+regex = "(mailto:|gemini:|gopher:|https:|http:|news:|file:|git:|ssh:|ftp:)[^\u0000-\u001F\u007F-<>\"\\s{-}\\^⟨⟩`]+"
+
+[hints.enabled.binding]
+key = "X"
+mods = "Control|Shift"
+
+[hints.enabled.mouse]
+enabled = true
+mods = "None"
+
+[[keyboard.bindings]]
+action = "ToggleViMode"
+key = "Return"
+mode = "Vi"
+
+[[keyboard.bindings]]
+action = "SpawnNewInstance"
+key = "Return"
+mods = "Control|Shift"
+
+[window]
+decorations_theme_variant = "Dark"
+opacity = 0.9
+
+[window.dimensions]
+columns = 120
+lines = 35
