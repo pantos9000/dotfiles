@@ -340,7 +340,7 @@ require('packer').startup(function(use)
                                     leader .. "p",
                                     "core.qol.todo_items.todo.task_pending",
                                     opts = {
-                                        desc = "Mark as pening" }
+                                        desc = "Mark as pending" }
                                 },
                                 {
                                     leader .. "d",
@@ -406,13 +406,12 @@ require('packer').startup(function(use)
                                 {
                                     leader .. "t",
                                     ":Neorg toggle-concealer<CR>",
-                                    opts = {
-                                        desc = "Toggle concealer" }
+                                    { desc = "Toggle concealer" }
                                 },
                                 {
                                     leader .. "a",
                                     ":Neorg toc split<CR>",
-                                    opts = { desc = "Open table of contents" }
+                                    { desc = "Open table of contents" }
                                 },
                             }
                         })
