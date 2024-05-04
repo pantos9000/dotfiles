@@ -3,4 +3,6 @@ if status is-interactive
 end
 
 # include hostname-dependent config
-source $HOME/.config/fish/conf.$hostname.d/*.fish
+for file in $HOME/.config/fish/conf.$hostname.d/*.fish
+    source $file
+end
