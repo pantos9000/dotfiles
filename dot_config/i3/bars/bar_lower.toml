@@ -10,6 +10,13 @@ separator_fg = "#888888"
 
 [[block]]
 block = "weather"
+autolocate = false
+interval = 600
+service = { name = "openweathermap", api_key = "18fa5dd1f7f1627974b1920944c22535", city_id = "2892794", units = "metric" }
+format = "[{location}] {weather_verbose} {temp}"
+
+[[block]]
+block = "weather"
 autolocate = true
 interval = 600
 service = { name = "openweathermap", api_key = "18fa5dd1f7f1627974b1920944c22535", city_id = "2892794", units = "metric" }
