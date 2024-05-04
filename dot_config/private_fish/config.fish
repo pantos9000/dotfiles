@@ -6,3 +6,6 @@ end
 for file in $HOME/.config/fish/conf.$hostname.d/*.fish
     source $file
 end
+
+# disable greeting
+set fish_greeting
