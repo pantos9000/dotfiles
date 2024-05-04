@@ -1,0 +1,6 @@
+[diff]
+    pager = "delta"
+
+[merge]
+    command = "meld"
+    args = ["--diff", "{{ .Destination }}", "{{ .Target }}"]
