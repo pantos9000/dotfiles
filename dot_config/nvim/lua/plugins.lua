@@ -141,7 +141,6 @@ require('packer').startup(function(use)
     -- nicer highlight of braces, keywords, ...
     use {
         'andymass/vim-matchup',
-        cond = no_vscode,
         setup = function()
             vim.g.matchup_matchparen_offscreen = { method = "popup" }
             require 'nvim-treesitter.configs'.setup { matchup = { enable = true } }
