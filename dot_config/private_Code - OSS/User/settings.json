@@ -114,5 +114,6 @@
         "wayland",
         "zbus"
     ],
+    "explorer.sortOrder": "mixed",
     "window.zoomLevel": -1
 }
