@@ -106,6 +106,34 @@ m = ":toggle-option mouse"
 # TODO search and replace word under cursor
 # R = ["move_next_word_start", "move_prev_word_start", "move_next_word_end", "search_selection", "select_all", "select_regex"]
 
+[keys.normal."ö"]
+"d" = "goto_prev_diag"
+"D" = "goto_first_diag"
+"g" = "goto_prev_change"
+"G" = "goto_first_change"
+"f" = "goto_prev_function"
+"t" = "goto_prev_class"
+"a" = "goto_prev_parameter"
+"c" = "goto_prev_comment"
+# "e" = "goto_prev_entry"
+"T" = "goto_prev_test"
+"p" = "goto_prev_paragraph"
+"space" = "add_newline_above"
+
+[keys.normal."ä"]
+"d" = "goto_next_diag"
+"D" = "goto_last_diag"
+"g" = "goto_next_change"
+"G" = "goto_last_change"
+"f" = "goto_next_function"
+"t" = "goto_next_class"
+"a" = "goto_next_parameter"
+"c" = "goto_next_comment"
+# "e" = "goto_next_entry"
+"T" = "goto_next_test"
+"p" = "goto_next_paragraph"
+"space" = "add_newline_below"
+
 [keys.select]
 # reset selection/cursors when exiting select
 esc = ["collapse_selection", "keep_primary_selection", "normal_mode"]
@@ -180,6 +208,7 @@ C-space = "completion"
 # toggle tab (space tab)
 # _ as word separator?
 # remap brackets?
+# stay in line with right, l, a
 
 
 
