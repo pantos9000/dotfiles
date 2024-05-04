@@ -178,6 +178,15 @@ require('packer').startup(function(use)
         end
     }
 
+    -- better register handling
+    use {
+        'gennaro-tedesco/nvim-peekup',
+        config = function()
+            vim.keymap.set('n', '<leader>"p', '<Plug>PeekupPasteAfter', { desc = 'paste register after cursor' })
+            vim.keymap.set('n', '<leader>"P', '<Plug>PeekupPasteBefore', { desc = 'paste register before cursor' })
+        end
+    }
+
     -- sudo saving
     use {
         'https://github.com/lambdalisue/suda.vim',
