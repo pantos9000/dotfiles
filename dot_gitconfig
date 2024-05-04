@@ -1,0 +1,39 @@
+# display moved code
+[diff]
+    colorMoved = default
+
+# use delta to display diffs
+[pager]
+    diff = delta
+    log = delta
+    reflog = delta
+    show = delta
+
+[delta]
+    plus-style = "syntax #012800"
+    minus-style = "syntax #340001"
+    syntax-theme = Monokai Extended
+    navigate = true
+    line-numbers = true
+    side-by-side = false
+
+[interactive]
+    diffFilter = delta --color-only
+
+# use meld as mergetool
+[merge]
+    tool = meld
+[mergetool "meld"]
+    cmd = meld "$LOCAL" "$MERGED" "$REMOTE" --output "$MERGED"
+
+# don't merge on pulls
+[pull]
+    rebase = true
+
+# useful aliases
+[alias]
+    graph = "log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n''          %C(white)%s%C(reset) %C(dim white)- %an%C(reset)' --all"
+    fpush = "! git push --force origin $(git symbolic-ref --short HEAD)"
+    fpull = "! git fetch --all && git reset --hard origin/$(git symbolic-ref --short HEAD)"
+    ; fpull = "! git fetch --all && git reset --hard $(git rev-parse --symbolic-full-name --abbrev-ref @{upstream})"
+    fsync = "! current=$(git symbolic-ref --short HEAD) ; git fetch --all && git branch -r | grep -v '\\->' | while read remote ; do git checkout ${remote#origin/} && git reset --hard \"${remote}\" ; done && git checkout ${current}"
