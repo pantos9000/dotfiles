@@ -15,35 +15,6 @@
     // additional vim bindings
     //////////
 
-    // disable ctrl+v for pasting -> use for visual block mode
-    {
-        "key": "ctrl+v",
-        "command": "-editor.action.clipboardPasteAction",
-        "when": "textInputFocus && !editorReadonly"
-    },
-
-    // ctrl up/down to jump 10 lines
-    {
-        "key": "ctrl+up",
-        "command": "cursorMove",
-        "args": {
-            "to": "up",
-            "by": "line",
-            "value": 10
-        },
-        "when": "editorTextFocus"
-    },
-    {
-        "key": "ctrl+down",
-        "command": "cursorMove",
-        "args": {
-            "to": "down",
-            "by": "line",
-            "value": 10
-        },
-        "when": "editorTextFocus"
-    },
-
     // ctrl+c to toggle comment
     {
         "key": "ctrl+c",
