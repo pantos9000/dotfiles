@@ -56,5 +56,7 @@
     "workbench.colorTheme": "Dark+",
     "editor.renderWhitespace": "boundary",
     "editor.renderControlCharacters": true,
-    "workbench.editor.enablePreview": false
+    "workbench.editor.enablePreview": false,
+    "editor.inlayHints.enabled": "offUnlessPressed",
+    "editor.formatOnSave": true
 }
