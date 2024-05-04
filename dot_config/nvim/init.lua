@@ -11,8 +11,6 @@ require('settings')
 -- TODO orgmode? or https://github.com/chipsenkbeil/vimwiki.nvim ?
 
 -- TODO plugins
---      - diffview https://github.com/sindrets/diffview.nvim ?
---      - friendly-snippets?
 --        https://sharksforarms.dev/posts/neovim-rust/
 
 --

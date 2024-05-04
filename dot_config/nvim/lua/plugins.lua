@@ -63,7 +63,7 @@ require('packer').startup(function(use)
             -- better code action menu
             {
                 'weilbith/nvim-code-action-menu',
-                cmd = 'CodeActionMenu', -- TODO
+                cmd = 'CodeActionMenu',
             },
 
             -- nice symbols for cmp completion menu
