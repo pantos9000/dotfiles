@@ -1,4 +1,4 @@
-theme = "onedarker_transparent"
+theme = "transparent_github_dark"
 
 [editor]
 bufferline = "multiple" # show open buffers only when multiple are open
@@ -58,13 +58,17 @@ mode.select = "SELECT"
 
 
 [keys.normal]
+esc = ["collapse_selection", "keep_primary_selection"]
+
 # use q to go back one word
-g = { a = "code_action" }
 q = "move_prev_word_start"
 Q = "move_prev_long_word_start"
 
+# use V to reduce cursors
+V = "remove_primary_selection"
+
 # use Tab to jump
-tab = "extend_to_word"
+tab = "goto_word"
 
 # remap x to have same behaviour in empty lines
 x = ["extend_to_line_bounds", "select_mode"]
@@ -73,8 +77,8 @@ x = ["extend_to_line_bounds", "select_mode"]
 X = ["extend_line_up", "extend_to_line_bounds"]
 
 # move faster with ctrl
-C-up = ["move_visual_line_up", "move_visual_line_up", "move_visual_line_up", "move_visual_line_up", "move_visual_line_up"]
-C-down = ["move_visual_line_down", "move_visual_line_down", "move_visual_line_down", "move_visual_line_down", "move_visual_line_down"]
+C-up = "goto_prev_paragraph"
+C-down = "goto_next_paragraph"
 C-left = "move_prev_word_start"
 C-right = "move_next_word_start"
 C-k = "page_cursor_half_up"
@@ -89,25 +93,29 @@ S-left = "unindent"
 S-right = "indent"
 
 # search for word under cursor
-# TODO replace this with something better
-"*" = ["move_prev_word_start", "move_next_word_end", "search_selection", "search_next"]
+"*" = ["move_next_word_start", "move_prev_word_start", "move_next_word_end", "search_selection", "search_next"]
 
 [keys.normal.space]
-# toggle whitespaces
-# space = ":toggle whitespace.render all none"
-space = ":toggle whitespace.render"
-
 # toggle mouse
 m = ":toggle-option mouse"
 
 # global search for word under cursor
 # TODO replace this with something better
-"*" = ["move_prev_word_start", "move_next_word_end", "search_selection", "global_search"]
+"*" = ["move_next_word_start", "move_prev_word_start", "move_next_word_end", "search_selection", "global_search"]
+
+# TODO search and replace word under cursor
+# R = ["move_next_word_start", "move_prev_word_start", "move_next_word_end", "search_selection", "select_all", "select_regex"]
 
 [keys.select]
+# reset selection/cursors when exiting select
+esc = ["collapse_selection", "keep_primary_selection", "normal_mode"]
+
 # use q to go back one word
 q = "extend_prev_word_start"
 Q = "extend_prev_long_word_start"
+
+# use V to reduce cursors
+V = "remove_primary_selection"
 
 # use Tab to jump
 tab = "extend_to_word"
@@ -123,8 +131,8 @@ d = "delete_selection_noyank"
 c = "change_selection_noyank"
 
 # move faster with ctrl
-C-down = ["extend_line_down", "extend_line_down", "extend_line_down", "extend_line_down", "extend_line_down"]
-C-up = ["extend_line_up", "extend_line_up", "extend_line_up", "extend_line_up", "extend_line_up"]
+C-up = "goto_prev_paragraph"
+C-down = "goto_next_paragraph"
 C-left = "extend_prev_word_start"
 C-right = "extend_next_word_start"
 C-j = ["extend_line_down", "extend_line_down", "extend_line_down", "extend_line_down", "extend_line_down"]
@@ -138,14 +146,20 @@ S-down = ["extend_to_line_bounds", "delete_selection", "paste_after"]
 S-left = "unindent"
 S-right = "indent"
 
-[keys.insert]
-# use q to go back one word
-q = "move_prev_word_start"
-Q = "move_prev_long_word_start"
+[keys.normal.g]
+a = "code_action"
+k = "goto_prev_paragraph"
+j = "goto_next_paragraph"
+up = "goto_prev_paragraph"
+down = "goto_next_paragraph"
 
+[keys.normal.n]
+n = "search_next"
+
+[keys.insert]
 # move faster with ctrl
-C-up = ["move_visual_line_up", "move_visual_line_up", "move_visual_line_up", "move_visual_line_up", "move_visual_line_up"]
-C-down = ["move_visual_line_down", "move_visual_line_down", "move_visual_line_down", "move_visual_line_down", "move_visual_line_down"]
+C-up = "goto_prev_paragraph"
+C-down = "goto_next_paragraph"
 C-left = "move_prev_word_start"
 C-right = "move_next_word_start"
 
@@ -155,26 +169,21 @@ S-down = ["extend_to_line_bounds", "delete_selection", "paste_after"]
 S-left = "unindent"
 S-right = "indent"
 
+# completion
 C-space = "completion"
 
 
 
 # TODO
+# toggle whitespaces (":toggle whitespace.render all none")
 # toggle gutters (space 1)
 # toggle tab (space tab)
-# toggle spaces (space space?)
-# clear highlighting (keep_primary_selection, collapse_selection -> space space?)
-# gb / gf - go back / go forward
-# space s - replace word under cursor? (leader s taken :( )
-# maybe remap remove_primary_selection
-# _ as word separator
-# map jump_forward / jump_backward
-# remap save_selection?
-# pick better theme for rust
-# check out config.like.nvim
+# _ as word separator?
+# remap brackets?
 
 
 
 # useful links
 # https://kapeli.com/cheat_sheets/Helix.docset/Contents/Resources/Documents/index
 # https://github.com/helix-editor/helix/wiki/Migrating-from-Vim
+# https://github.com/LGUG2Z/helix-vim
