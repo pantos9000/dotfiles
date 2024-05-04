@@ -1,5 +1,7 @@
 local hop = require('hop')
 
+hop.setup { keys = 'etovxqpdygfblzhckisuran' }
+
 -- jump to words
 vim.keymap.set({ 'n', 'v' }, 'j', function()
     hop.hint_words()
