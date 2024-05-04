@@ -51,6 +51,7 @@ require('packer').startup(function(use)
             -- additional completion
             { 'hrsh7th/cmp-path' },
             { 'hrsh7th/cmp-buffer' },
+            { 'andersevenrud/cmp-tmux' },
 
             -- better code action menu
             {
@@ -82,6 +83,24 @@ require('packer').startup(function(use)
     use {
         'freddiehaddad/feline.nvim',
         requires = { 'nvim-tree/nvim-web-devicons', opt = false }
+    }
+
+    -- nicer folding
+    use {
+        'kevinhwang91/nvim-ufo',
+        requires = {
+            'kevinhwang91/promise-async',
+            "luukvbaal/statuscol.nvim", -- remove pesky foldlevel numbers from foldcolumn
+        }
+    }
+
+    -- nicer nvim ui
+    use { 'stevearc/dressing.nvim' }
+
+    -- nicer notifications
+    use {
+        'rcarriga/nvim-notify',
+        requires = { 'nvim-telescope/telescope.nvim' },
     }
 
     -- fuzzy finder
@@ -130,6 +149,12 @@ require('packer').startup(function(use)
         end
     })
 
+    -- additional targets
+    use 'wellle/targets.vim' -- 'change inside' e.g. for '_', '|', ...
+
+    -- treesitter targets
+    use 'RRethy/nvim-treesitter-textsubjects'
+
     -- cumulative increment in visual mode
     use {
         'https://github.com/triglav/vim-visual-increment',
@@ -154,32 +179,17 @@ require('packer').startup(function(use)
         requires = "nvim-tree/nvim-web-devicons",
     }
 
-    -- nicer folding
-    use {
-        'kevinhwang91/nvim-ufo',
-        requires = {
-            'kevinhwang91/promise-async',
-            "luukvbaal/statuscol.nvim", -- remove pesky foldlevel numbers from foldcolumn
-        }
-    }
-
-    -- nicer nvim ui
-    use { 'stevearc/dressing.nvim' }
-
     -- nicer file explorer
     use { 'stevearc/oil.nvim' }
+
+    -- sidebar for quick code navigation
+    use 'stevearc/aerial.nvim'
 
     -- easier windows moving
     use 'sindrets/winshift.nvim'
 
     -- easier windows resizing
-    use 'mrjones2014/smart-splits.nvim' -- TODO
-
-    -- additional targets
-    use 'wellle/targets.vim' -- 'change inside' e.g. for '_', '|', ...
-
-    -- treesitter targets
-    use 'RRethy/nvim-treesitter-textsubjects'
+    use 'mrjones2014/smart-splits.nvim'
 
     -- faster coloring
     use {

@@ -1,4 +1,6 @@
 local builtin = require('telescope.builtin')
+local telescope = require('telescope')
+
 vim.keymap.set('n', '<leader>/', builtin.current_buffer_fuzzy_find, { desc = 'find in buffer' })
 
 vim.keymap.set('n', '<leader>pF', builtin.find_files, { desc = 'find files' })
@@ -6,6 +8,7 @@ vim.keymap.set('n', '<leader>pg', builtin.live_grep, { desc = 'grep in files' })
 vim.keymap.set('n', '<leader>pf', builtin.git_files, { desc = 'find git files' })
 vim.keymap.set('n', '<leader>pv', builtin.help_tags, { desc = 'grep in vim help' })
 vim.keymap.set('n', '<leader>pm', builtin.man_pages, { desc = 'find man pages' })
+vim.keymap.set('n', '<leader>pn', telescope.extensions.notify.notify, { desc = 'find in notifications' })
 
 vim.keymap.set('n', '<leader>pj', builtin.jumplist, { desc = 'find in jumplist' })
 
