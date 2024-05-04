@@ -3,12 +3,12 @@ local hop = require('hop')
 hop.setup { keys = 'etovxqpdygfblzhckisuran' }
 
 -- jump to words
-vim.keymap.set({ 'n', 'v' }, 'j', function()
+vim.keymap.set({ 'n', 'v' }, '<Tab>', function()
     hop.hint_words()
 end, { remap = true, desc = 'jump to word' })
 
 -- jump to char
-vim.keymap.set({ 'n', 'v' }, 'k', function()
+vim.keymap.set({ 'n', 'v' }, '<S-Tab>', function()
     hop.hint_char1()
 end, { remap = true, desc = 'jump to char' })
 
