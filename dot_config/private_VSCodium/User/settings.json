@@ -1,6 +1,5 @@
 {
     "editor.cursorSurroundingLines": 8,
-    "diffEditor.ignoreTrimWhitespace": false,
     "editor.acceptSuggestionOnCommitCharacter": false,
     "editor.suggestOnTriggerCharacters": false,
     "editor.quickSuggestions": {
@@ -123,7 +122,6 @@
     ],
     "explorer.sortOrder": "mixed",
     "cmake.configureOnOpen": false,
-    "window.zoomLevel": -1,
     "cmake.showOptionsMovedNotification": false,
     "vscode-neovim.neovimExecutablePaths.linux": "/usr/bin/nvim",
     "extensions.experimental.affinity": {
@@ -131,4 +129,12 @@
     },
     "vscode-neovim.logPath": "/tmp/vscode-neovim.log",
     "vscode-neovim.logLevel": "warn",
+    "markdown.preview.scrollEditorWithPreview": false,
+    "markdown.preview.scrollPreviewWithEditor": false,
+    "window.zoomLevel": -1,
+    "gitlens.telemetry.enabled": false,
+    "github.customPullRequestDescription": "gitEditor",
+    "githubPullRequests.fileListLayout": "tree",
+    "diffEditor.ignoreTrimWhitespace": false,
+    "githubPullRequests.pullBranch": "never",
 }
