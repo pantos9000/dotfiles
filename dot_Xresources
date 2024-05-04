@@ -1,0 +1,56 @@
+! ****************
+! defines
+! ****************
+
+#define black           #000000
+#define brightblack     #555555
+#define red             #aa0000
+#define brightred       #ff5555
+#define green           #00aa00
+#define brightgreen     #55ff55
+#define yellow          #aa5500
+#define brightyellow    #ffff55
+#define blue            #0000aa
+#define brightblue      #5555ff
+#define magenta         #aa00aa
+#define brightmagenta   #ff55ff
+#define cyan            #00aaaa
+#define brightcyan      #55ffff
+#define white           #e8e9ca
+#define brightwhite     #ffffff
+#define grey            #777777
+#define brightgrey      #aaaaaa
+
+! ****************
+! terminal colors
+! ****************
+
+*background:    black
+*foreground:    white
+*cursorColor:   brightcyan
+
+*color0:        black
+*color1:        red
+*color2:        green
+*color3:        yellow
+*color4:        blue
+*color5:        magenta
+*color6:        cyan
+*color7:        white
+*color8:        brightblack
+*color9:        brightred
+*color10:       brightgreen
+*color11:       brightyellow
+*color12:       brightblue
+*color13:       brightmagenta
+*color14:       brightcyan
+*color15:       brightwhite
+
+
+
+! ****************
+! cursor settings
+! ****************
+
+Xcursor.theme:  Pulse-Glass
+Xcursor.size:   20
