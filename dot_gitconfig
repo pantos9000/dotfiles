@@ -33,10 +33,9 @@
 # useful aliases
 [alias]
     graph = "log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n''          %C(white)%s%C(reset) %C(dim white)- %an%C(reset)' --all"
-    fpush = "! git push --force origin $(git symbolic-ref --short HEAD)"
-    fpull = "! git fetch --all && git reset --hard origin/$(git symbolic-ref --short HEAD)"
-    ; fpull = "! git fetch --all && git reset --hard $(git rev-parse --symbolic-full-name --abbrev-ref @{upstream})"
-    fsync = "! current=$(git symbolic-ref --short HEAD) ; git fetch --all && git branch -r | grep -v '\\->' | while read remote ; do git checkout ${remote#origin/} && git reset --hard \"${remote}\" ; done && git checkout ${current}"
+    fpush = "! git push --force origin $(git symbolic-ref --short HEAD) #"
+    fpull = "! git fetch --all && git reset --hard origin/$(git symbolic-ref --short HEAD) #"
+    add-postfix = "! git filter-branch -f --msg-filter \"cat && echo -e '$1'\" $2..HEAD #"
 
 [init]
     defaultBranch = master
