@@ -5,6 +5,8 @@ vim.g.loaded_netrwPlugin = 1
 -- set termguicolors to enable highlight groups
 vim.opt.termguicolors = true
 
+vim.keymap.set('n', '<leader>e', '<cmd> NvimTreeToggle<CR>', { desc = 'file explorer' })
+
 local function my_on_attach(bufnr)
     local api = require "nvim-tree.api"
 
@@ -16,7 +18,6 @@ local function my_on_attach(bufnr)
     -- api.config.mappings.default_on_attach(bufnr)
 
     -- custom mappings
-    -- TODO: global toggle of side bar
     -- TODO: side bar still visible with tabs
     vim.keymap.set('n', '?', api.tree.toggle_help, opts('Help'))
     vim.keymap.set('n', 'gh', api.node.show_info_popup, opts('Info'))
