@@ -1,51 +1,54 @@
-icons = "awesome"
+icons_format = "{icon}"
 
 [theme]
-# name = "solarized-dark"
-name = "plain"
-
+# theme = "solarized-dark"
+theme = "plain"
 [theme.overrides]
 separator = " | "
 separator_fg = "#888888"
 
+[icons]
+icons = "awesome5"
+
 # TODO sda/sdb load?
+
 
 [[block]]
 block = "disk_space"
 path = "/"
 info_type = "used"
-format = "{icon} [{path}] {percentage}"
+format = "$icon [$path] $percentage"
 alert = 95
 warning = 80
 [block.theme_overrides]
-good_fg     = "#00FFFF" # cyan
-idle_fg     = "#00FFFF" # cyan
+good_fg = "#00FFFF" # cyan
+idle_fg = "#00FFFF" # cyan
 
 [[block]]
 block = "disk_space"
 path = "~"
 info_type = "used"
-format = "{icon} [~] {percentage}"
+format = "$icon [~] $percentage"
 alert = 95
 warning = 80
 [block.theme_overrides]
-good_fg     = "#00FFFF" # cyan
-idle_fg     = "#00FFFF" # cyan
+good_fg = "#00FFFF" # cyan
+idle_fg = "#00FFFF" # cyan
 
 [[block]]
 block = "disk_space"
 path = "/tmp"
 info_type = "used"
-format = "{icon} [{path}] {percentage}"
+format = "$icon [$path] $percentage"
 alert = 95
 warning = 80
 [block.theme_overrides]
-good_fg     = "#00FFFF" # cyan
-idle_fg     = "#00FFFF" # cyan
+good_fg = "#00FFFF" # cyan
+idle_fg = "#00FFFF" # cyan
+
 
 [[block]]
 block = "temperature"
-collapsed = false
 interval = 10
 scale = "celsius"
 good = 20
@@ -53,25 +56,27 @@ idle = 45
 info = 60
 warning = 80
 
+
 [[block]]
 block = "cpu"
 interval = 1
-format = "{barchart} {utilization}"
+format = "$barchart $utilization"
 [block.theme_overrides]
 idle_fg = "#DFBE8D" # dark novajo
 good_fg = "#DFBE8D" # dark novajo
 
 [[block]]
 block = "memory"
-format_mem = "mem:{mem_total_used_percents}"
-format_swap = "swp: {swap_used}"
+format = "$icon mem:$mem_total_used_percents.eng(w:3)"
+format_alt = "$icon swp:$swap_used_percents.eng(w:3)"
 warning_swap = 1.0 # warn early when swapping
-clickable = true
 [block.theme_overrides]
 idle_fg = "#DFBE8D" # dark novajo
 good_fg = "#DFBE8D" # dark novajo
 
+
 {{ if (or (eq .chezmoi.hostname "zhar") (eq .chezmoi.hostname "KARCLT39421")) }}
+
 [[block]]
 block = "backlight"
 cycle = [100, 75, 50, 25, 5]
@@ -79,20 +84,24 @@ cycle = [100, 75, 50, 25, 5]
 [[block]]
 block = "battery"
 interval = 10
-full_format = "{percentage}"
-format = "{percentage} ({time})"
+full_format = "$percentage"
+format = "$percentage ($time)"
+
 {{ else }}
 # backlight and battery only available for laptops (removed with chezmoi template)
 {{ end }}
 
+
 [[block]]
 block = "sound"
 driver = "pulseaudio"
-on_click = "pavucontrol"
 headphones_indicator = true
+[[block.click]]
+button = "left"
+cmd = "pavucontrol"
 
 [[block]]
 block = "time"
-format = "%a %d.%b %R"
+format = "$icon $timestamp.datetime(f:'%a %d.%b %R')"
 timezone = "Europe/Berlin"
 interval = 10
