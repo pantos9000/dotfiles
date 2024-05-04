@@ -23,6 +23,9 @@ require('packer').startup(function(use)
         run = ':TSUpdate'
     }
 
+    use "nvim-treesitter/nvim-treesitter-context"
+
+
     -- snippets
     use {
         "L3MON4D3/LuaSnip",
