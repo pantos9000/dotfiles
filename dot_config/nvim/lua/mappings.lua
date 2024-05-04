@@ -93,9 +93,9 @@ map('v', 'M', "'", { desc = 'markers' })
 
 -- toggle mouse
 map('n', '<leader>m', function()
-    old_val = vim.opt.mouse:get()
-    is_a = old_val['a']
-    is_v = old_val['v']
+    local old_val = vim.opt.mouse:get()
+    local is_a = old_val['a']
+    local is_v = old_val['v']
     if is_v then
         vim.opt.mouse = 'a'
         print('mouse=a')
