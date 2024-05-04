@@ -219,6 +219,9 @@ require('packer').startup(function(use)
     -- easier windows resizing
     use 'mrjones2014/smart-splits.nvim'
 
+    -- text alignment
+    use { 'echasnovski/mini.align', branch = 'stable' }
+
     -- faster coloring
     use {
         'NvChad/nvim-colorizer.lua',

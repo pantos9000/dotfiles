@@ -11,11 +11,6 @@ require('settings')
 -- TODO orgmode? or https://github.com/chipsenkbeil/vimwiki.nvim ?
 
 -- TODO plugins
---      - align plugin
---          - easy align? https://github.com/junegunn/vim-easy-align
---          - or vim lion?
---          - or https://github.com/echasnovski/mini.align ?
---          - or https://github.com/Vonr/align.nvim ?
 --      - diffview https://github.com/sindrets/diffview.nvim ?
 --      - friendly-snippets?
 --        https://sharksforarms.dev/posts/neovim-rust/
