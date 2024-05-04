@@ -1,2 +1,2 @@
 fish_add_path "$HOME/scripts"
-fish_add_path "$HOME/ops.tools.helper-scripts"
+fish_add_path "$HOME/ocs-appteam-helper-scripts"
