@@ -64,6 +64,12 @@ require('packer').startup(function(use)
 
             -- inlay hints
             { 'lvimuser/lsp-inlayhints.nvim' },
+
+            -- show progress
+            {
+                'j-hui/fidget.nvim',
+                tag = 'legacy',
+            }
         }
     }
 
