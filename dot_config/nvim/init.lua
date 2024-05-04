@@ -2,12 +2,21 @@ require('plugins')
 require('mappings')
 require('settings')
 
--- TODO nicer cmp completion menu (borders?)
--- TODO revisit go to stuff, e.g. definition, code action, ...
--- TODO retry rust tools? (see video I sent to ali)
--- TODO friendly-snippets?
---      https://sharksforarms.dev/posts/neovim-rust/
--- TODO debugging with https://github.com/mfussenegger/nvim-dap ?
+-- TODO oil
+-- TODO try out https://astronvim.com/Configuration/plugin_defaults
+--      - https://github.com/stevearc/oil.nvim
+--      - https://github.com/stevearc/aerial.nvim
+--      - WEITER: nvim-notify
+-- TODO missing opt:
+-- - go to definition in new pane
+-- - autocomplete from tmux panes?
+-- TODO debugging
+--      https://alpha2phi.medium.com/setting-up-neovim-for-rust-debugging-termdebug-and-vimspector-df749e1ba47c
+--      https://github.com/mfussenegger/nvim-dap
+--      https://github.com/rcarriga/nvim-dap-ui
+--      https://github.com/jay-babu/mason-nvim-dap.nvim
+-- TODO orgmode? or https://github.com/chipsenkbeil/vimwiki.nvim ?
+-- TODO sort plugins :)
 
 -- TODO plugins
 --      - easy align? https://github.com/junegunn/vim-easy-align
@@ -15,14 +24,10 @@ require('settings')
 --      - diffview https://github.com/sindrets/diffview.nvim ?
 --      - fzf? oder bei telescope bleiben?
 --      - https://github.com/gennaro-tedesco/nvim-peekup
+--      - friendly-snippets?
+--        https://sharksforarms.dev/posts/neovim-rust/
 
--- TODO autocomplete from tmux panes?
--- TODO netrw config
--- TODO orgmode? or https://github.com/chipsenkbeil/vimwiki.nvim ?
 --
--- TODO missing opt:
--- - go to definition, maybe in new pane
--- - show / fetch functions (with telescope?)
-
 -- failed: :(
 -- - matchup https://github.com/andymass/vim-matchup
+-- - rust-tools

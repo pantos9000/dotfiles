@@ -42,7 +42,11 @@ require('packer').startup(function(use)
             -- Autocompletion
             { 'hrsh7th/nvim-cmp' },     -- Required
             { 'hrsh7th/cmp-nvim-lsp' }, -- Required
-            { 'hrsh7th/cmp-vsnip' },    -- Required
+            {
+                "L3MON4D3/LuaSnip",
+                tag = "v1.*",                 -- follow latest release.
+                run = "make install_jsregexp" -- install jsregexp (optional!:).
+            },
 
             -- additional completion
             { 'hrsh7th/cmp-path' },
@@ -53,6 +57,9 @@ require('packer').startup(function(use)
                 'weilbith/nvim-code-action-menu',
                 cmd = 'CodeActionMenu', -- TODO
             },
+
+            -- nice symbols for cmp completion menu
+            { 'onsails/lspkind.nvim' },
 
             -- inlay hints
             { 'lvimuser/lsp-inlayhints.nvim' },
@@ -156,10 +163,13 @@ require('packer').startup(function(use)
         }
     }
 
+    -- nicer nvim ui
+    use { 'stevearc/dressing.nvim' }
+
     -- nicer file explorer
     use {
         'nvim-tree/nvim-tree.lua',
-        requires = 'nvim-tree/nvim-web-devicons'
+        requires = 'nvim-tree/nvim-web-devicons',
     }
 
     -- easier windows moving

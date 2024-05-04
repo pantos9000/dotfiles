@@ -8,14 +8,14 @@ inlay_hints.setup({
     },
 })
 
-local lsp = require('lsp-zero').preset({
+local lsp = require('lsp-zero')
+lsp.preset({
     name = 'recommended',
     manage_nvim_cmp = false,
 })
 
--- some lsp-buffer specific keybindings
-local telescope = require('telescope.builtin')
 lsp.on_attach(function(client, bufnr)
+    local telescope = require('telescope.builtin')
     inlay_hints.on_attach(client, bufnr)
 
     lsp.default_keymaps({ buffer = bufnr }) -- add lsp-zero defaults
@@ -42,10 +42,8 @@ lsp.on_attach(function(client, bufnr)
     map('n', '<C-h>', vim.lsp.buf.signature_help, { desc = 'signature help' })
     map('i', '<C-h>', vim.lsp.buf.signature_help, { desc = 'signature help' })
 
-    -- map('n', 'ga', function() vim.lsp.buf.code_action() end, { desc = 'code action' })
     map('n', 'ga', vim.cmd.CodeActionMenu, { desc = 'code action' })
-    -- TODO nicer code action
-    -- TODO code action range?
+    map('v', 'ga', vim.cmd.CodeActionMenu, { desc = 'code action' })
 
     map('n', 'F2', vim.lsp.buf.rename, { desc = 'rename symbol under cursor' })
     map('n', 'F3', vim.lsp.buf.format, { desc = 'format file' })
@@ -83,24 +81,27 @@ lsp.ensure_installed({
     'bashls',
 })
 
--- TODO
--- rust-analyzer will be setup by rust-tools
--- lsp.skip_server_setup({ 'rust-analyzer' })
-
 lsp.setup()
 
--- You need to setup `cmp` after lsp-zero
+-- setup `cmp` after lsp-zero
 local cmp = require('cmp')
+local lspkind = require('lspkind')
 cmp.setup({
     completion = {
         keyword_length = 0,
         autocomplete = false,
     },
+    formatting = {
+        format = lspkind.cmp_format({
+            -- defines how annotations are shown
+            -- default: symbol
+            -- options: 'text', 'text_symbol', 'symbol_text', 'symbol'
+            mode = 'symbol',
+        })
+    },
     preselect = cmp.PreselectMode.None,
     snippet = {
-        expand = function(args)
-            vim.fn['vsnip#anonymous'](args.body)
-        end,
+        expand = function(args) luasnip.lsp_expand(args.body) end,
     },
     mapping = {
         -- `Enter` key to confirm completion
@@ -113,9 +114,15 @@ cmp.setup({
         ['<Up>'] = cmp.mapping(cmp.mapping.select_prev_item(), { 'i', 'c' }),
         ['<Down>'] = cmp.mapping(cmp.mapping.select_next_item(), { 'i', 'c' }),
     },
+    sources = cmp.config.sources {
+        { name = "nvim_lsp", priority = 1000 },
+        { name = "luasnip",  priority = 750 },
+        { name = "buffer",   priority = 500 },
+        { name = "path",     priority = 250 },
+    },
     sources = {
         { name = 'nvim_lsp' },
-        { name = 'vsnip' },
+        { name = 'luasnip' },
         { name = 'path' },
         { name = 'buffer' },
     },

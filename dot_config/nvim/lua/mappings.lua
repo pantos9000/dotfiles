@@ -51,10 +51,6 @@ map('v', 'p', '"_dP', { desc = 'paste' })
 map('n', '<leader>d', '"_d', { desc = 'delete without yank' })
 map('v', '<leader>d', '"_d', { desc = 'delete without yank' })
 
--- jump in compiler errors
-map('n', '<C-p>', ':cprev<CR>zz', { desc = 'prev error' })
-map('n', '<C-n>', ':cnext<CR>zz', { desc = 'next error' })
-
 -- replace the word under the cursor
 map('n', '<leader>s', ':%s/\\<<C-r><C-w>\\>/<C-r><C-w>/g<Left><Left>',
     { silent = false, desc = 'replace word under cursor' })

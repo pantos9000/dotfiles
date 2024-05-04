@@ -5,6 +5,20 @@
 vim.opt.nu = true
 vim.opt.relativenumber = true
 
+-- display tabs and EOL spaces
+vim.opt.list = true
+vim.opt.listchars = {
+    lead = '·',
+    trail = '·',
+    tab = '▸ ',
+    extends = '⮞',
+    precedes = '⮜',
+    -- nbsp = '·',
+    -- eol = '¬',
+}
+vim.cmd([[highlight Whitespace ctermfg=darkcyan guifg=darkcyan]])
+
+
 -- tabstop
 vim.opt.tabstop = 4
 vim.opt.softtabstop = 4
