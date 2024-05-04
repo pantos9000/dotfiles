@@ -42,10 +42,8 @@ lsp.on_attach(function(client, bufnr)
     map('n', '<C-h>', vim.lsp.buf.signature_help, { desc = 'signature help' })
     map('i', '<C-h>', vim.lsp.buf.signature_help, { desc = 'signature help' })
 
-    -- map('n', 'ga', function() vim.lsp.buf.code_action() end, { desc = 'code action' })
     map('n', 'ga', vim.cmd.CodeActionMenu, { desc = 'code action' })
-    -- TODO nicer code action
-    -- TODO code action range?
+    map('v', 'ga', vim.cmd.CodeActionMenu, { desc = 'code action' })
 
     map('n', 'F2', vim.lsp.buf.rename, { desc = 'rename symbol under cursor' })
     map('n', 'F3', vim.lsp.buf.format, { desc = 'format file' })

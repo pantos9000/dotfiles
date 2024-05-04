@@ -2,7 +2,6 @@ require('plugins')
 require('mappings')
 require('settings')
 
--- TODO nicer CodeActionMenu('ga')
 -- TODO nicer cmp completion menu (borders?)
 -- TODO revisit go to stuff, e.g. definition, code action, ...
 -- TODO friendly-snippets?
