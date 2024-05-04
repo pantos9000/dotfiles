@@ -156,9 +156,15 @@ require('packer').startup(function(use)
         }
     }
 
+    -- nicer file explorer
     use {
         'nvim-tree/nvim-tree.lua',
         requires = 'nvim-tree/nvim-web-devicons'
+    }
+
+    -- easier windows moving
+    use {
+        'sindrets/winshift.nvim'
     }
 
     -- faster coloring

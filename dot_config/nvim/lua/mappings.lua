@@ -28,6 +28,12 @@ map('n', '<S-Right>', ">>", { desc = 'move line right' })
 map('v', '<S-Right>', ">gv", { desc = 'move selection right' })
 map('i', '<S-Right>', "<C-o>>>", { desc = 'move line right' })
 
+-- window controls
+map('n', '<tab>', '<C-w><C-w>', { desc = 'tab through windows' })
+-- <C-w>m for winshift
+map('n', '<C-w>v', '<cmd> split<CR>', { noremap = false, desc = 'vertical split' })
+map('n', '<C-w>h', '<cmd> vsplit<CR>', { noremap = false, desc = 'horizontal split' })
+
 -- let cursor stay in the middle when doing search
 map('n', 'n', 'nzzzv', { desc = 'next search result' })
 map('n', 'N', 'Nzzzv', { desc = 'prev search result' })
@@ -87,10 +93,6 @@ map('i', '<C-S-w>', '<C-u>', { desc = 'delete until start of line' })
 
 -- clear highlighting
 map('n', '<leader><Space>', ':noh<CR>', { desc = 'clear highlighting' })
-
--- jump between parens
-map('n', '<Tab>', '%', { desc = 'jump between parens' })
-map('v', '<Tab>', '%', { desc = 'jump between parens' })
 
 -- access markers
 map('n', ',', "'", { desc = 'markers' })

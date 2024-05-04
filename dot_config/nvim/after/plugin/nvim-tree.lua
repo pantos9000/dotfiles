@@ -18,7 +18,6 @@ local function my_on_attach(bufnr)
     -- api.config.mappings.default_on_attach(bufnr)
 
     -- custom mappings
-    -- TODO: side bar still visible with tabs
     vim.keymap.set('n', '?', api.tree.toggle_help, opts('Help'))
     vim.keymap.set('n', 'gh', api.node.show_info_popup, opts('Info'))
     vim.keymap.set('n', 'R', api.tree.reload, opts('Refresh'))
@@ -27,8 +26,6 @@ local function my_on_attach(bufnr)
     vim.keymap.set('n', 'zM', api.tree.collapse_all, opts('Collapse all'))
 
     vim.keymap.set('n', '<CR>', api.node.open.edit, opts('Open'))
-    vim.keymap.set('n', '<tab>', api.node.open.tab, opts('Open: New Tab'))
-    vim.keymap.set('n', 'o', api.node.open.preview, opts('Open Preview'))
 
     vim.keymap.set('n', '<S-Right>', api.tree.change_root_to_node, opts('CD'))
     vim.keymap.set('n', '<S-Left>', api.node.navigate.parent_close, opts('Close Directory'))
