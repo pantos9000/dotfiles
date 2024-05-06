@@ -39,6 +39,7 @@
     add-postfix = "! git filter-branch -f --msg-filter \"cat && echo -e '$1'\" $2..HEAD #"
     autosquash = "! git rebase -i \"$1\" --autosquash #"
     yolo = "! git commit --author='whatthecommit <null@whatthecommit.com>' -m \"$(curl -s https://whatthecommit.com/index.txt)\" #"
+    reset-author = "commit --amend --no-edit --reset-author"
 
 [init]
     defaultBranch = master
