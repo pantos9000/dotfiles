@@ -328,20 +328,6 @@ require('packer').startup(function(use)
     -- File specific
     --------------------
 
-    -- neorg
-    use {
-        "nvim-neorg/neorg",
-        cond = no_vscode,
-        ft = "norg",   -- only load in norg files
-        cmd = 'Neorg', -- lazy load on command, allows you to autocomplete :Neorg regardless of whether it's loaded yet
-        config = require('configs/config_neorg'),
-        run = ":Neorg sync-parsers",
-        requires = {
-            "nvim-lua/plenary.nvim",
-            "folke/zen-mode.nvim",
-        },
-    }
-
     -- markdown preview
     use({
         "iamcco/markdown-preview.nvim",
