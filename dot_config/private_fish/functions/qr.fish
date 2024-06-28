@@ -20,5 +20,5 @@ function qr
         set clip_content "$(xclip -o)"
     end
 
-    command qrencode -s 8 -o -t utf8 "$clip_content"
+    command qrencode -s 8 -o - -t utf8 "$clip_content"
 end
