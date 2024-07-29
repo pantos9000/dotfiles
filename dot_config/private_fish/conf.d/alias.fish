@@ -13,9 +13,9 @@ alias rip 'expac --timefmt="%Y-%m-%d %T" "%l\t%n %v" | sort | tail -200 | nl'
 
 # replacements
 alias cat 'bat --style header --style snip --style changes --style header'
-alias grep 'ripgrep --color=auto'
-alias egrep 'ripgrep -E --color=auto'
-alias fgrep 'ripgrep -F --color=auto'
+alias grep 'rg --color=auto'
+alias egrep 'rg -E --color=auto'
+alias fgrep 'rg -F --color=auto'
 
 # colorize
 alias ip 'ip -color'
