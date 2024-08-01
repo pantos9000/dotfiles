@@ -323,6 +323,14 @@ require('packer').startup(function(use)
         end
     }
 
+    -- additional icons
+    use { 'echasnovski/mini.icons',
+        branch = 'main',
+        config = function()
+            require('mini.icons').setup()
+        end
+    }
+
 
     --------------------
     -- File specific

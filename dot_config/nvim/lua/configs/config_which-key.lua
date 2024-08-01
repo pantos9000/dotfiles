@@ -4,11 +4,11 @@ local M = function()
     vim.opt.timeoutlen = 500
 
     require('which-key').setup {
-        popup_mappings = {
+        keys = {
             scroll_down = '<Down>',
             scroll_up = '<Up>',
         },
-        window = {
+        win = {
             border = 'single', -- none, single, double, shadow
             position = 'bottom',
             margin = { 1, 0, 1, 0 },
