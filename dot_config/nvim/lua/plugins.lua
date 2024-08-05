@@ -342,6 +342,9 @@ require('packer').startup(function(use)
         run = function() vim.fn["mkdp#util#install"]() end,
     })
 
+    -- d2 lang support
+    use "terrastruct/d2-vim"
+
 
     --------------------
     -- Performance
