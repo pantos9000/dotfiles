@@ -9,11 +9,9 @@ local M = function()
             scroll_up = '<Up>',
         },
         win = {
+            no_overlap = false,
             border = 'single', -- none, single, double, shadow
-            position = 'bottom',
-            margin = { 1, 0, 1, 0 },
-            padding = { 0, 0, 0, 0 },
-            winblend = 0, -- transparency
+            padding = { 0, 0 },
         },
     }
 end
