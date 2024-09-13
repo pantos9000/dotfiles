@@ -78,7 +78,7 @@ lsp.ensure_installed({
     'lua_ls',
     'rust_analyzer',
     'pylsp',
-    'tsserver',
+    'ts_ls',
     'eslint',
     'clangd',
     'neocmake',
