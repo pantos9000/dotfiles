@@ -76,13 +76,6 @@ require('packer').startup(function(use)
                 'lvimuser/lsp-inlayhints.nvim',
                 cond = no_vscode,
             },
-
-            -- show progress
-            {
-                'j-hui/fidget.nvim',
-                cond = no_vscode,
-                tag = 'legacy',
-            }
         },
     }
 
