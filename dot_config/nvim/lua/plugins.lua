@@ -133,6 +133,7 @@ require('packer').startup(function(use)
 
     -- nicer highlight of braces, keywords, ...
     use {
+        cond = no_vscode,
         'andymass/vim-matchup',
         setup = function()
             vim.g.matchup_matchparen_offscreen = { method = "popup" }
