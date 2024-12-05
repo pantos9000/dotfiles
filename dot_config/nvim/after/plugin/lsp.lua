@@ -46,9 +46,6 @@ lsp.on_attach(function(client, bufnr)
     map('n', '<C-h>', vim.lsp.buf.signature_help, { desc = 'signature help' })
     map('i', '<C-h>', vim.lsp.buf.signature_help, { desc = 'signature help' })
 
-    map('n', 'ga', vim.cmd.CodeActionMenu, { desc = 'code action' })
-    map('v', 'ga', vim.cmd.CodeActionMenu, { desc = 'code action' })
-
     map('n', '<leader>r', vim.lsp.buf.rename, { desc = 'rename symbol under cursor' }) -- TODO change
     map('n', '<F3>', vim.lsp.buf.format, { desc = 'format file' })
 

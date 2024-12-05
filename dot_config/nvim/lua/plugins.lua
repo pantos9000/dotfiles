@@ -58,13 +58,6 @@ require('packer').startup(function(use)
             { 'hrsh7th/cmp-buffer' },
             { 'andersevenrud/cmp-tmux' },
 
-            -- better code action menu
-            {
-                'weilbith/nvim-code-action-menu',
-                cmd = 'CodeActionMenu',
-                cond = no_vscode,
-            },
-
             -- nice symbols for cmp completion menu
             {
                 'onsails/lspkind.nvim',
@@ -77,6 +70,13 @@ require('packer').startup(function(use)
                 cond = no_vscode,
             },
         },
+    }
+
+    -- better code action menu
+    use {
+        "aznhe21/actions-preview.nvim",
+        config = require('configs/config_actions_preview'),
+        cond = no_vscode,
     }
 
 
