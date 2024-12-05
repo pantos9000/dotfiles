@@ -51,6 +51,19 @@ local M = function()
                 node_decremental = '<BS>',
             },
         },
+        textobjects = {
+            select = {
+                enable = true,
+                lookahead = true,
+                keymaps = {
+                    ["af"] = { query = "@function.outer", desc = "Select outer part of function" },
+                    ["if"] = { query = "@function.inner", desc = "Select inner part of function" },
+                    ["ac"] = { query = "@class.outer"   , desc = "Select outer part of class" },
+                    ["ic"] = { query = "@class.inner"   , desc = "Select inner part of class" },
+                    ["as"] = { query = "@local.scope", query_group = "locals", desc = "Select language scope" },
+                },
+            },
+        },
     }
 
     local parser_config = require('nvim-treesitter.parsers').get_parser_configs()
