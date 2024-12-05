@@ -67,6 +67,8 @@ lsp.format_on_save({
         ['pylsp'] = { 'python' },
         ['neocmake'] = { 'cmake' },
         ['clangd'] = { 'c', 'cpp', 'cs', 'cuda' },
+        ['taplo'] = { 'Toml' },
+        ['bashls'] = { 'Sh' },
     }
 })
 
@@ -77,7 +79,7 @@ lsp.ensure_installed({
     'pylsp',
     'clangd',
     'neocmake',
-    'bashls',
+    'taplo',
 })
 
 lsp.setup()
