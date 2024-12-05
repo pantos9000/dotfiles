@@ -67,19 +67,14 @@ lsp.format_on_save({
         ['pylsp'] = { 'python' },
         ['neocmake'] = { 'cmake' },
         ['clangd'] = { 'c', 'cpp', 'cs', 'cuda' },
-        -- if you have a working setup with null-ls
-        -- you can specify filetypes it can format.
-        -- ['null-ls'] = {'javascript', 'typescript'},
     }
 })
 
--- required language servers
+-- required language servers (installed with mason)
 lsp.ensure_installed({
     'lua_ls',
     'rust_analyzer',
     'pylsp',
-    'ts_ls',
-    'eslint',
     'clangd',
     'neocmake',
     'bashls',
