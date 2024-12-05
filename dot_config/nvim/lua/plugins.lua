@@ -181,6 +181,7 @@ require('packer').startup(function(use)
         -- tag = 'release' -- To use the latest release (do not use this if you run Neovim nightly or dev builds!)
         config = require('configs/config_gitsigns'),
     }
+
     use { 'tpope/vim-fugitive',
         cond = no_vscode,
         config = require('configs/config_fugitive'),
@@ -281,7 +282,7 @@ require('packer').startup(function(use)
 
     -- cumulative increment in visual mode
     use {
-        'https://github.com/triglav/vim-visual-increment',
+        'triglav/vim-visual-increment',
         config = function()
             -- keymap has to be set before plugin is loaded, otherwise default keymaps will be overwritten
             vim.keymap.set('v', '<leader><C-a>', '<Plug>VisualIncrement', { desc = 'cumulative increment' })
@@ -302,7 +303,7 @@ require('packer').startup(function(use)
 
     -- sudo saving
     use {
-        'https://github.com/lambdalisue/suda.vim',
+        'lambdalisue/suda.vim',
         cond = no_vscode,
         config = function()
             vim.api.nvim_create_user_command('W', 'SudaWrite', {})
