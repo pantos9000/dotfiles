@@ -53,7 +53,7 @@ alphabet = "asdfgqwertlhjklzuiop"
 
 [[hints.enabled]]
 action = "Copy"
-regex = "(mailto:|gemini:|gopher:|https:|http:|news:|file:|git:|ssh:|ftp:)[^\u0000-\u001F\u007F-<>\"\\s{-}\\^⟨⟩`]+"
+regex = "(mailto:|gemini:|gopher:|https:|http:|news:|file:|git:|ssh:|ftp:)[^\u0000-\u001F\u007F-<>\"\\s{-}\\^⟨⟩()`]+"
 
 [hints.enabled.binding]
 key = "X"
