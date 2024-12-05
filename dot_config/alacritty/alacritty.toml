@@ -75,7 +75,7 @@ mods = "Control|Shift"
 
 [window]
 decorations_theme_variant = "Dark"
-opacity = 0.7
+opacity = 0.8
 
 [window.dimensions]
 columns = 120
