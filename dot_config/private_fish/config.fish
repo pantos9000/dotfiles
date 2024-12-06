@@ -14,6 +14,12 @@ set -xU MANPAGER "sh -c 'col -bx | bat -l man -p'"
 set -xU MANROFFOPT "-c"
 set -x SHELL /usr/bin/fish
 
+# Add ~/.cargo/bin to PATH
+if test -d ~/.cargo/bin
+    if not contains -- ~/.cargo/bin $PATH
+        set -p PATH ~/.cargo/bin
+    end
+end
 
 # Add ~/.local/bin to PATH
 if test -d ~/.local/bin
