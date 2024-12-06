@@ -79,6 +79,8 @@ lsp.ensure_installed({
     'taplo',
 })
 
+require('manually_installed.lsp')
+
 lsp.setup()
 
 -- setup `cmp` after lsp-zero

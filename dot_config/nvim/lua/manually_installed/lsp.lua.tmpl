@@ -1,0 +1,15 @@
+{{ if (eq .chezmoi.hostname "nen2358") }}
+
+-- manually installed stuff
+require'lspconfig'.bashls.setup {
+    cmd = {
+        '/snap/bash-language-server/current/bin/node',
+        '/snap/bash-language-server/current/lib/node_modules/bash-language-server/out/cli.js',
+        'start'
+    }
+}
+{{ else }}
+
+-- nothing manually installed
+
+{{ end }}
