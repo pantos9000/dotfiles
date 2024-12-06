@@ -46,3 +46,21 @@ alias mirror 'sudo reflector -f 30 -l 30 --number 10 --verbose --save /etc/pacma
 alias mirrora 'sudo reflector --latest 50 --number 20 --sort age --save /etc/pacman.d/mirrorlist'
 alias mirrord 'sudo reflector --latest 50 --number 20 --sort delay --save /etc/pacman.d/mirrorlist'
 alias mirrors 'sudo reflector --latest 50 --number 20 --sort score --save /etc/pacman.d/mirrorlist'
+
+# fzf aliases
+alias f-search '_fzf_search_directory'
+alias f-git-log '_fzf_search_git_log'
+alias f-git-status '_fzf_search_git_status'
+alias f-processes '_fzf_search_processes'
+alias f-env-vars '_fzf_search_variables'
+
+# cargo update
+alias cargo-update 'cargo install-update'
+
+alias ipython ipython3
+
+# flatseal
+alias flatseal "flatpak run com.github.tchx84.Flatseal"
+
+# backup
+alias backup "deja-dup"
