@@ -71,3 +71,6 @@
 
 [includeIf "gitdir:~/.local/share/chezmoi/"]
     path = ~/pantos9000/.gitconfig
+
+[includeIf "gitdir:~/.password-store/"]
+    path = ~/pantos9000/.gitconfig
