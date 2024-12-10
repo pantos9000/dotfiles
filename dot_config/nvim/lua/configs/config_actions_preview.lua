@@ -16,6 +16,7 @@ local M = function()
     map('v', 'ga', require("actions-preview").code_actions, { desc = 'code action' })
     map('n', '<C-.>', require("actions-preview").code_actions, { desc = 'code action' })
     map('v', '<C-.>', require("actions-preview").code_actions, { desc = 'code action' })
+    map('i', '<C-.>', require("actions-preview").code_actions, { desc = 'code action' })
 end
 
 return M
