@@ -145,3 +145,5 @@ map('n', 'gn', vim.diagnostic.goto_next, { desc = 'next diagnostic' })
 map('n', 'gp', vim.diagnostic.goto_next, { desc = 'prev diagnostic' })
 
 map('n', '§', '%', { desc = 'move line up' })
+
+-- map('n', '<CR>', function() require('tsht').nodes() end, { desc = 'bla' })

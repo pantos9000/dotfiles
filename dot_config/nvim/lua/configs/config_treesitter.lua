@@ -41,16 +41,6 @@ local M = function()
             additional_vim_regex_highlighting = false,
         },
 
-        -- smart select
-        incremental_selection = {
-            enable = true,
-            keymaps = {
-                init_selection = '<CR>',
-                scope_incremental = nil,
-                node_incremental = '<CR>',
-                node_decremental = '<BS>',
-            },
-        },
         textobjects = {
             select = {
                 enable = true,
