@@ -40,7 +40,7 @@
     stashu = "stash -u --"
     unstage = "restore --staged"
     graph = "log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n''          %C(white)%s%C(reset) %C(dim white)- %an%C(reset)' --all"
-    fpush = "! git push --force-with-lease origin $(git symbolic-ref --short HEAD) #"
+    fpush = "! git push --force-with-lease origin --force-if-includes $(git symbolic-ref --short HEAD) #"
     upush = "! git push -u origin $(git symbolic-ref --short HEAD) #"
     fpull = "! git fetch --all && git reset --hard origin/$(git symbolic-ref --short HEAD) #"
     add-postfix = "! git filter-branch -f --msg-filter \"cat && echo -e '$1'\" $2..HEAD #"
