@@ -26,7 +26,3 @@ function _fzf_uninstall --on-event fzf_uninstall
     echo "You may need to manually remove fzf_configure_bindings from your config.fish if you were using custom key bindings."
     set_color normal
 end
-
-# use delta for diffs
-set fzf_diff_highlighter delta --paging=never --width=20
-
