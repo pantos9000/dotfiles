@@ -46,6 +46,8 @@
     add-postfix = "! git filter-branch -f --msg-filter \"cat && echo -e '$1'\" $2..HEAD #"
     yolo = "! git commit --author='whatthecommit <null@whatthecommit.com>' -m \"[WIP] $(curl -s https://whatthecommit.com/index.txt)\" #"
     reset-author = "commit --amend --no-edit --reset-author"
+    dummy = "! git config user.email 'me@y.not' && git config user.name 'Me' && echo 'successfully set dummy user for this repo'"
+    undo = "! git reset --hard $(git rev-parse --abbrev-ref HEAD)@{${1-1}} #"
 
 [init]
     defaultBranch = master
