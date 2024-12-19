@@ -83,8 +83,8 @@ require('packer').startup(function(use)
     use {
         "mfussenegger/nvim-treehopper",
         config = function()
-            require("tsht").config.hint_keys = { "h", "j", "f", "d", "n", "v", "s", "l", "a" }
-            vim.keymap.set('n', '<CR>', function() require('tsht').nodes() end, { desc = 'bla' })
+            require('tsht').config.hint_keys = { "h", "j", "f", "d", "n", "v", "s", "l", "a" }
+            vim.keymap.set('n', '<CR>', function() require('tsht').nodes() end, { desc = 'Select regions' })
         end
     }
 
