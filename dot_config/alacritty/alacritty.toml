@@ -46,7 +46,7 @@ text = "CellBackground"
 vi_mode_style = "Underline"
 
 [font]
-size = 8.0
+size = 9.0
 
 [hints]
 alphabet = "asdfgqwertlhjklzuiop"
