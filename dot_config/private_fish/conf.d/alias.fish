@@ -64,3 +64,6 @@ alias flatseal "flatpak run com.github.tchx84.Flatseal"
 
 # backup
 alias backup "deja-dup"
+
+# disable vi
+alias vi "nvim"
