@@ -50,6 +50,7 @@
     stashs = "stash show -p"
     sbs = "! git -c delta.side-by-side=true" # no comment at the end, for following commands
 
+    ri = rebase -i --update-refs
     yolo = "! git commit --author='whatthecommit <null@whatthecommit.com>' -m \"[WIP] $(curl -s https://whatthecommit.com/index.txt)\" #"
     reset-author = "commit --amend --no-edit --reset-author"
     add-postfix = "! git filter-branch -f --msg-filter \"cat && echo -e '$1'\" $2..HEAD #"
@@ -61,8 +62,6 @@
     sort = -committerdate
 [fetch]
     writeCommitGraph = true
-[rebase]
-    updateRefs = true
 
 # directory-specific identities
 #
