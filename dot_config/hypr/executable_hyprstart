@@ -10,7 +10,7 @@ export MICRO_TRUECOLOR=1
 export EDITOR=/usr/bin/nvim
 
 #browser
-export BROWSER=librewolf
+export BROWSER=waterfox
 #terminal
 export TERM=alacritty
 #mail
