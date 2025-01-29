@@ -34,12 +34,12 @@
 [alias]
     dummyuser = "! git config user.email 'me@y.not' && git config user.name 'Me' && echo 'successfully set dummy user for this repo'"
     shallowclone = "clone --depth 1"
-    autosquash = "! git rebase -i origin/$(git symbolic-ref --short HEAD) --autosquash"
+    autosquash = "! git rebase -i --autosquash"
     undo = "! git reset --hard $(git rev-parse --abbrev-ref HEAD)@{${1-1}} #"
     unstage = "restore --staged"
     stashu = "stash -u --"
 
-    fpush = "! git push --force-with-lease origin --force-if-includes $(git symbolic-ref --short HEAD) #"
+    fpush = "! git push --force-with-lease --force-if-includes origin $(git symbolic-ref --short HEAD) #"
     upush = "! git push -u origin $(git symbolic-ref --short HEAD) #"
     fpull = "! git fetch --all && git reset --hard origin/$(git symbolic-ref --short HEAD) #"
 
