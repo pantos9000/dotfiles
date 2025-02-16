@@ -109,10 +109,9 @@ require('packer').startup(function(use)
 
     -- status bar
     use {
-        'freddiehaddad/feline.nvim',
-        cond = no_vscode,
-        requires = { 'nvim-tree/nvim-web-devicons', opt = false },
-        config = require('configs/config_feline')
+        'nvim-lualine/lualine.nvim',
+       cond = no_vscode,
+       requires = { 'nvim-tree/nvim-web-devicons', opt = true },
     }
 
     -- show current context when out of visible range
