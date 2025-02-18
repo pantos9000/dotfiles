@@ -11,7 +11,10 @@ local M = function()
             "permissions",
             "size",
             "icon",
-            -- "mtime",
+            "mtime",
+        },
+        view_options = {
+            show_hidden = true,
         },
         keymaps = {
             ["?"] = "actions.show_help",
