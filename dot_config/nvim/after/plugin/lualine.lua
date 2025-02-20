@@ -1,3 +1,7 @@
+if vim.g.vscode ~= nil then
+    return
+end
+
 -- Eviline config for lualine
 -- Author: shadmansaleh
 -- Credit: glepnir
