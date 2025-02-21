@@ -20,10 +20,10 @@ return {
       format_on_save = {
         enabled = true, -- enable or disable format on save globally
         -- allow_filetypes = { -- enable format on save for specified filetypes only
-          -- "go",
+        -- "go",
         -- },
         -- ignore_filetypes = { -- disable format on save for specified filetypes
-          -- "python",
+        -- "python",
         -- },
       },
       disabled = { -- disable formatting capabilities for the listed language servers
@@ -37,13 +37,13 @@ return {
     },
     -- enable servers that you already have installed without mason
     servers = {
-      'bashls',
-      'taplo',
-      'neocmake',
-      'rust_analyzer',
-      'pyright',
-      'lua_ls',
-      'clangd',
+      "bashls",
+      "taplo",
+      "neocmake",
+      "rust_analyzer",
+      "ruff",
+      "lua_ls",
+      "clangd",
     },
     -- customize language server configuration options passed to `lspconfig`
     ---@diagnostic disable: missing-fields
@@ -84,8 +84,8 @@ return {
     -- A custom `on_attach` function to be run after the default `on_attach` function
     -- takes two parameters `client` and `bufnr`  (`:h lspconfig-setup`)
     -- on_attach = function(client, bufnr)
-      -- this would disable semanticTokensProvider for all clients
-      -- client.server_capabilities.semanticTokensProvider = nil
+    -- this would disable semanticTokensProvider for all clients
+    -- client.server_capabilities.semanticTokensProvider = nil
     -- end,
     file_operations = {
       timeout = 10000, -- default timeout in ms for completing LSP operations
