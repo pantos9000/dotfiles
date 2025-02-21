@@ -253,7 +253,6 @@ return {
 }
 
 -- TODO lsp -> ensure_installed
--- TODO colors, transparency
 -- TODO klammern farb hervorhebung
 -- TODO rest of recipes
 -- TODO go through disabled configs for inspiration
