@@ -38,7 +38,6 @@ return {
       "kotlin",
       "perl",
       "php",
-      "swift",
       "typescript",
       "zig",
       "llvm",
