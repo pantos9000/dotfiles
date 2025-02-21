@@ -32,11 +32,11 @@ return {
         -- display tabs and EOL spaces
         list = true,
         listchars = {
-          lead = '·',
-          trail = '·',
-          tab = '▸ ',
-          extends = '⮞',
-          precedes = '⮜',
+          lead = "·",
+          trail = "·",
+          tab = "▸ ",
+          extends = "⮞",
+          precedes = "⮜",
           -- nbsp = '·',
           -- eol = '¬',
         },
@@ -82,16 +82,16 @@ return {
         modeline = false,
 
         -- only enable mouse in visual and normal mode (for mark&copy in other modes)
-        mouse = 'nv',
+        mouse = "nv",
 
         -- auto reload changed files
         autoread = true,
 
         -- use system clipboard by default
-        clipboard = 'unnamedplus',
+        clipboard = "unnamedplus",
 
         -- UTF-8 FTW \o/
-        encoding = 'utf-8',
+        encoding = "utf-8",
 
         -- disable spell checking
         spell = false,
