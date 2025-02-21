@@ -80,7 +80,7 @@ mods = "Super|Shift"
 
 [window]
 decorations_theme_variant = "Dark"
-opacity = 0.8
+opacity = 0.9
 
 [window.dimensions]
 columns = 120
