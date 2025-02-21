@@ -54,6 +54,7 @@
     ri = rebase -i --update-refs
     ria = rebase -i --update-refs --autosquash
     fixup = commit --fixup
+    cane = commit --amend --no-edit
     yolo = "! git commit --author='whatthecommit <null@whatthecommit.com>' -m \"[WIP] $(curl -s https://whatthecommit.com/index.txt)\" #"
     reset-author = "commit --amend --no-edit --reset-author"
     add-postfix = "! git filter-branch -f --msg-filter \"cat && echo -e '$1'\" $2..HEAD #"
