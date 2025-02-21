@@ -55,6 +55,10 @@ alphabet = "asdfgqwertlhjklzuiop"
 action = "Copy"
 regex = "(mailto:|gemini:|gopher:|https:|http:|news:|file:|git:|ssh:|ftp:)[^\u0000-\u001F\u007F-<>\"\\s{-}\\^⟨⟩()`]+"
 
+[[hints.enabled]]
+regex = "[^ ]+\\.rs:\\d+:\\d+"
+command = { program = "code", args = ["--goto"] }
+
 [hints.enabled.binding]
 key = "X"
 mods = "Control|Shift"
@@ -71,7 +75,12 @@ mode = "Vi"
 [[keyboard.bindings]]
 action = "SpawnNewInstance"
 key = "Return"
-mods = "Control|Shift"
+mods = "Super|Shift"
+
+[[keyboard.bindings]]
+action = "SpawnNewInstance"
+key = "c"
+mods = "Super|Shift"
 
 [window]
 decorations_theme_variant = "Dark"
