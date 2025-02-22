@@ -164,6 +164,9 @@ return {
           ["<C-h>"] = { "<C-o>b", desc = "1 word back" },
           ["<C-Right>"] = { "<C-o>w", desc = "1 word forward" },
           ["<C-l>"] = { "<C-o>w", desc = "1 word forward" },
+
+          -- toggle comments
+          ["<C-c>"] = { "<C-o>gcc", remap = true, desc = "Toggle comment line" },
         },
         v = {
           -- move with shift
