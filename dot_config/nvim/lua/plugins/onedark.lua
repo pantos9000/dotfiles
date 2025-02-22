@@ -6,5 +6,8 @@ return {
       transparent = true,
     }
     require("onedark").load()
+    require("notify").setup {
+      background_colour = "#000000",
+    }
   end,
 }
