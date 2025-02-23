@@ -1,3 +1,4 @@
+-- https://docs.astronvim.com/configuration/customizing_plugins/
 return {
   {
     "AstroNvim/astrocore",
@@ -254,12 +255,3 @@ return {
     end,
   },
 }
-
--- TODO lsp -> ensure_installed
--- TODO klammern farb hervorhebung
--- TODO rest of recipes
--- TODO go through disabled configs for inspiration
---
--- https://docs.astronvim.com/recipes/advanced_lsp/
--- https://docs.astronvim.com/configuration/customizing_plugins/
--- https://docs.astronvim.com/recipes/cmp/
