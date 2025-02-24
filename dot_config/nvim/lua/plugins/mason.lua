@@ -9,10 +9,8 @@ return {
     opts = {
       ensure_installed = {
         "lua_ls",
-        "bashls",
         "clangd",
         "neocmake",
-        "pyright",
         "rust_analyzer",
         "taplo",
         -- add more arguments for adding more language servers
@@ -27,6 +25,7 @@ return {
       ensure_installed = {
         "stylua",
         "selene",
+        "mypy",
         -- add more arguments for adding more null-ls sources
       },
     },

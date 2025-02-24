@@ -1,5 +1,3 @@
-{{ if (eq .chezmoi.hostname "nen2358") }}
-
 return {
   "AstroNvim/astrolsp",
   -- we need to use the function notation to get access to the `lspconfig` module
@@ -27,10 +25,3 @@ return {
     })
   end,
 }
-
-{{ else }}
-
--- nothing manually installed
-return {}
-
-{{ end }}
