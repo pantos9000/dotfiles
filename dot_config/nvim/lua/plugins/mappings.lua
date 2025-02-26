@@ -40,14 +40,6 @@ return {
           ["<S-Right>"] = { ">>", desc = "move line right" },
           ["<S-Left>"] = { "<<", desc = "move line left" },
 
-          -- let cursor stay in the middle when doing search
-          ["n"] = { "nzzzv", desc = "next search result" },
-          ["N"] = { "Nzzzv", desc = "prev search result" },
-
-          -- let cursor stay in the middle on PgUp/PgDn
-          ["<PageDown>"] = { "<C-d>zz", desc = "page down" },
-          ["<PageUp>"] = { "<C-u>zz", desc = "page up" },
-
           -- do stuff without overwriting the previous clipboard (e.g. for replacing marked text)
           ["<leader>d"] = { '"_d', desc = "delete without yank" },
 
