@@ -11,7 +11,6 @@ return {
         "lua_ls",
         "clangd",
         "neocmake",
-        "rust_analyzer",
         "taplo",
         -- add more arguments for adding more language servers
       },

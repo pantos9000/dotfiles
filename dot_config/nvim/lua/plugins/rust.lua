@@ -36,7 +36,7 @@ return {
   {
     "williamboman/mason-lspconfig.nvim",
     opts = {
-      ensure_installed = { "rust_analyzer" }, -- automatically install lsp
+      -- ensure_installed = { "rust_analyzer" }, -- automatically install lsp
     },
   },
 }

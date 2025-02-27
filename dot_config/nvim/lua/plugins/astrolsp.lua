@@ -40,7 +40,6 @@ return {
       "bashls",
       "taplo",
       "neocmake",
-      "rust_analyzer",
       "ruff",
       "lua_ls",
       "clangd",
