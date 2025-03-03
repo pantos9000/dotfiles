@@ -1,4 +1,11 @@
 -- https://docs.astronvim.com/configuration/customizing_plugins/
+
+local is_vscode = vim.g.vscode
+local telescope = function()
+  if is_vscode then return {} end
+  return require "telescope.builtin"
+end
+
 return {
   {
     "AstroNvim/astrocore",
@@ -213,12 +220,15 @@ return {
             cond = "textDocument/declaration",
           },
           ["<leader>r"] = { vim.lsp.buf.rename, desc = "Symbol rename" },
-          gd = { require("telescope.builtin").lsp_definitions, desc = "Go to symbol definition" },
-          gI = { require("telescope.builtin").lsp_implementations, desc = "Go to symbol implementations" },
-          gy = { require("telescope.builtin").lsp_type_definitions, desc = "Go to symbol type definitions" },
-          gr = { require("telescope.builtin").lsp_references, desc = "Go to symbol references" },
-          gc = { require("telescope.builtin").lsp_incoming_calls, desc = "Go to symbol incoming calls" },
-          gC = { require("telescope.builtin").lsp_outgoing_calls, desc = "Go to symbol outgoing calls" },
+          gd = {
+            telescope().lsp_definitions,
+            desc = "Go to symbol definition",
+          },
+          gI = { telescope().lsp_implementations, desc = "Go to symbol implementations" },
+          gy = { telescope().lsp_type_definitions, desc = "Go to symbol type definitions" },
+          gr = { telescope().lsp_references, desc = "Go to symbol references" },
+          gc = { telescope().lsp_incoming_calls, desc = "Go to symbol incoming calls" },
+          gC = { telescope().lsp_outgoing_calls, desc = "Go to symbol outgoing calls" },
           ["gG"] = {
             function()
               vim.ui.input({ prompt = "Symbol Query: (leave empty for word under cursor)" }, function(query)
