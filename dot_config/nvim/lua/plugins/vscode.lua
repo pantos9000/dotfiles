@@ -27,9 +27,6 @@ Config.options.change_detection.enabled = false
 -- replace the default `cond`
 Config.options.defaults.cond = function(plugin) return vim.tbl_contains(plugins, plugin.name) end
 
--- avoid output window popping up in searches
-vim.opt.cmdheight = 1
-
 ---@type LazySpec
 return {
   -- add a few keybindings
@@ -49,6 +46,12 @@ return {
         },
         v = {
           ["ga"] = "<CMD>call VSCodeNotify('editor.action.refactor')<CR>",
+        },
+      },
+      options = {
+        opt = {
+          -- avoid output window popping up in searches
+          cmdheight = 1,
         },
       },
     },
