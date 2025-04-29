@@ -49,7 +49,6 @@
     "gitlens.statusBar.pullRequests.enabled": false,
     "gitlens.hovers.autolinks.enhanced": false,
     "gitlens.views.repositories.pullRequests.showForCommits": false,
-    "rust-analyzer.checkOnSave.command": "clippy",
     "cSpell.caseSensitive": true,
     "cSpell.language": "en,de",
     "cSpell.diagnosticLevel": "Warning",
