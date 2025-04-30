@@ -1,4 +1,7 @@
-#!/usr/bin/env bash
+#!/bin/bash
+set -euo pipefail
+
+TOTP=${1:-}
 
 shopt -s nullglob globstar
 
@@ -11,5 +14,8 @@ password=$(printf '%s\n' "${password_files[@]}" | wofi --dmenu --matching=fuzzy 
 
 [[ -n $password ]] || exit
 
-pass show -c "$password" 2>/dev/null
-
+if [ "$TOTP" = "totp" ]; then
+    pass otp -c "$password" 2>/dev/null
+else
+    pass show -c "$password" 2>/dev/null
+fi
