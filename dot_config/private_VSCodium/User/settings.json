@@ -54,7 +54,6 @@
     "cSpell.diagnosticLevel": "Warning",
     "cSpell.userWords": [
         "ASAN",
-        "barco",
         "BGRX",
         "bindgen",
         "bitflags",
@@ -129,6 +128,7 @@
         "zbus"
     ],
     "explorer.sortOrder": "mixed",
+    "explorer.sortOrderReverse": true,
     "cmake.configureOnOpen": false,
     "cmake.showOptionsMovedNotification": false,
     "vscode-neovim.neovimExecutablePaths.linux": "/usr/bin/nvim",
@@ -147,5 +147,12 @@
     "githubPullRequests.pullBranch": "never",
     "editor.hover.delay": 2000,
     "editor.hover.hidingDelay": 1000,
+    "editor.minimap.showSlider": "always",
+    "editor.minimap.size": "fill",
+    "chat.commandCenter.enabled": false,
+    "telemetry.telemetryLevel": "off",
     "rust-analyzer.check.command": "clippy",
+    "rust-analyzer.check.extraArgs": [
+        "--tests"
+    ],
 }
