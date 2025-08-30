@@ -16,8 +16,7 @@ local plugins = {
   "nvim-spider",
   "nvim-surround",
   "nvim-visual-increment",
-  "hop.nvim",
-  "nvim-treehopper",
+  "flash.nvim",
 }
 
 local Config = require "lazy.core.config"
