@@ -50,6 +50,8 @@
     diffc = "diff --cached"
     diffs = "diff --cached"
     stashs = "stash show -p"
+
+    # usage: e.g. 'git sbs show'
     sbs = "! git -c delta.side-by-side=true" # no comment at the end, for following commands
 
     ri = rebase -i --update-refs
