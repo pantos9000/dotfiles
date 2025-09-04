@@ -1,0 +1,51 @@
+profile "basic" {
+    output eDP-1 mode 1920x1200 position 0,0
+    exec swaymsg 'output eDP-1 enable bg $WP_1 fill'
+    exec notify-send 'Kanshi:' 'Switched to profile "basic"'
+}
+
+profile "home left" {
+    output DP-1  mode 1920x1080 position 0,0
+    output eDP-1 mode 1920x1200 position 1920,0
+    exec ~/.config/kanshi/home.sh DP-1 eDP-1
+    exec notify-send 'Kanshi:' 'Switched to profile "home left"'
+}
+
+profile "home right" {
+    output eDP-1 mode 1920x1200 position 0,0
+    output DP-3  mode 1920x1080 position 1920,0
+    exec ~/.config/kanshi/home.sh eDP-1 DP-3
+    exec notify-send 'Kanshi:' 'Switched to profile "home right"'
+}
+
+profile "home big" {
+    output eDP-1 mode 1920x1200 position 0,0
+    output HDMI-A-1 mode 3840x2160 scale 1.8 position 1920,0
+    exec ~/.config/kanshi/home.sh eDP-1 HDMI-A-1
+    exec notify-send 'Kanshi:' 'Switched to profile "home big left"'
+}
+
+profile "work" {
+    output DP-7  mode 1920x1080 position 0,0
+    output DP-6  mode 1920x1080 position 1920,0
+    output eDP-1 mode 1920x1200 position 3840,0
+    exec ~/.config/kanshi/work.sh eDP-1 DP-7 DP-6
+    exec notify-send 'Kanshi:' 'Switched to profile "work"'
+}
+
+profile "work reconnect" {
+    output DP-9  mode 1920x1080 position 0,0
+    output DP-8  mode 1920x1080 position 1920,0
+    output eDP-1 mode 1920x1200 position 3840,0
+    exec ~/.config/kanshi/work.sh eDP-1 DP-9 DP-8
+    exec notify-send 'Kanshi:' 'Switched to profile "work reconnect"'
+}
+
+profile "meeting room" {
+# TODO execute sway reload config?
+    output DP-10  mode 1920x1080 position 0,0
+    output DP-9  mode 1920x1080 position 1920,0
+    output eDP-1 mode 1920x1200 position 3840,0
+    exec ~/.config/kanshi/meeting_room.sh eDP-1 DP-10 DP-9
+    exec notify-send 'Kanshi:' 'Switched to profile "meeting room"'
+}
