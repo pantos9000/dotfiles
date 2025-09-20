@@ -155,4 +155,5 @@
     "rust-analyzer.check.extraArgs": [
         "--tests"
     ],
+    "chat.disableAIFeatures": true,
 }
