@@ -33,6 +33,7 @@ alias ...... 'cd ../../../../..'
 # convenience/util
 alias pacdiff 'sudo -H DIFFPROG=meld pacdiff'
 alias agl='ag --pager="less -R"'
+alias ag-all='ag --hidden --unrestricted'
 alias vim='nvim'
 alias hw 'hwinfo --short'                          # Hardware Info
 alias fixpacman 'sudo rm /var/lib/pacman/db.lck'
