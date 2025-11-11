@@ -39,6 +39,7 @@
     unstage = "restore --staged"
     stashu = "stash -u --"
 
+    pullb = "! git fetch origin $1:$1 #"
     fpush = "! git push --force-with-lease --force-if-includes origin $(git symbolic-ref --short HEAD) #"
     fpushb = "push --force-with-lease --force-if-includes origin"
     upush = "! git push -u origin $(git symbolic-ref --short HEAD) #"
