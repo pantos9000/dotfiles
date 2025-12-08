@@ -63,6 +63,7 @@
     yolo = "! git commit --author='whatthecommit <null@whatthecommit.com>' -m \"[WIP] $(curl -s https://whatthecommit.com/index.txt)\" #"
     reset-author = "commit --amend --no-edit --reset-author"
     add-postfix = "! git filter-branch -f --msg-filter \"cat && echo -e '$1'\" $2..HEAD #"
+    cherry-pick-from-dir = "!git --git-dir=$1/.git format-patch -k -1 --stdout $2 | git am -3 -k #"
 
 [init]
     defaultBranch = master
